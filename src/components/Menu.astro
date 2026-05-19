@@ -1,6 +1,6 @@
 ---
 const coffee = [
-  { name: 'ESPRESSO',    price: '2.50', desc: 'A single shot, neat. Ask about today\'s single origin.' },
+  { name: 'ESPRESSO',    price: '2.50', desc: 'A single shot, neat. Single-origin, rotated regularly — ask what\'s on today.' },
   { name: 'MACCHIATO',   price: '3.30', desc: 'Espresso marked with a small spoon of foamed milk.' },
   { name: 'CORTADO',     price: '3.30', desc: 'Equal parts espresso and warm milk. No foam.' },
   { name: 'AMERICANO',   price: '3.50', desc: 'A double shot lengthened with hot water. Long and clean.' },
@@ -167,6 +167,12 @@ const hotDrinks = [
     color: var(--brick-light);
     text-transform: uppercase;
     margin-bottom: 0.875rem;
+    position: sticky;
+    top: 4rem;
+    z-index: 2;
+    background-color: var(--ink);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 
   .menu__rule {
