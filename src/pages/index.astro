@@ -10,7 +10,7 @@ import '../styles/global.css';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -177,28 +177,29 @@ import '../styles/global.css';
         document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
       }
 
-      // Scroll progress
+      // Scroll progress + scroll-to-top (single listener)
       const scrollProgress = document.getElementById('scroll-progress');
-      if (scrollProgress) {
-        window.addEventListener('scroll', () => {
-          const scrolled = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-          scrollProgress.style.transform = `scaleX(${Math.min(scrolled, 1)})`;
-        }, { passive: true });
-      }
-
-      // Scroll-to-top button
       const scrollTopBtn = document.getElementById('scroll-top');
-      if (scrollTopBtn) {
-        window.addEventListener('scroll', () => {
-          const visible = window.scrollY >= 400;
+
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+
+        if (scrollProgress) {
+          scrollProgress.style.transform = `scaleX(${Math.min(y / max, 1)})`;
+        }
+
+        if (scrollTopBtn) {
+          const visible = y >= 400;
           scrollTopBtn.classList.toggle('scroll-top--visible', visible);
           scrollTopBtn.setAttribute('aria-hidden', String(!visible));
           scrollTopBtn.tabIndex = visible ? 0 : -1;
-        }, { passive: true });
-        scrollTopBtn.addEventListener('click', () => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      }
+        }
+      }, { passive: true });
+
+      scrollTopBtn?.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
 
       // Developer easter egg
       console.log('%cGRINDFATHER', 'font-size:20px;font-weight:900;letter-spacing:6px;color:#fb3640;font-family:sans-serif');

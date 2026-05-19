@@ -4,7 +4,7 @@
   --ink-muted: oklch(52% 0.008 155);
   --paper: oklch(96% 0.006 85);
   --paper-muted: oklch(40% 0.006 85);
-  --brick: #fb3640;
+  --brick: oklch(60% 0.25 25);
   --brick-deep: oklch(44% 0.24 25);
   --brick-light: oklch(70% 0.22 25);
 
@@ -22,7 +22,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 100%;
   scroll-behavior: smooth;
 }
 

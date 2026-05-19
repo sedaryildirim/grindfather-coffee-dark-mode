@@ -1,7 +1,7 @@
 <section class="hero" aria-label="GRINDFATHER Coffee Co.">
   <div class="hero__bg" aria-hidden="true">
     <img
-      src="https://images.unsplash.com/photo-1542181961-9590d0c79dab?auto=format&fit=crop&w=1600&q=80"
+      src={`${import.meta.env.BASE_URL}/hero-img.webp`}
       alt=""
       width="1600"
       height="1067"
@@ -228,7 +228,7 @@
   }
 
   .ticker__dot {
-    color: var(--brick) !important;
+    color: var(--brick);
     opacity: 0.6;
   }
 
@@ -249,7 +249,6 @@
       animation: hero-content-exit linear both;
       animation-timeline: scroll(root);
       animation-range: 10vh 70vh;
-      will-change: opacity, transform;
     }
 
     @keyframes hero-content-exit {
