@@ -25,3 +25,4 @@
 | 09:21 | designqc: captured 6 screenshots (257KB, ~15000 tok) | / | ready for eval | ~0 |
 | 09:23 | designqc: captured 6 screenshots (257KB, ~15000 tok) | / | ready for eval | ~0 |
 | 09:26 | designqc: captured 6 screenshots (258KB, ~15000 tok) | / | ready for eval | ~0 |
+| 13:16 | Updated hero image src | src/components/Hero.astro | hero-img.webp → grindfather-hero-img-main.webp | ~50 |
