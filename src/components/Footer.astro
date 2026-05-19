@@ -1,0 +1,261 @@
+<footer class="footer" role="contentinfo">
+  <div class="footer__inner">
+    <a href="#" class="footer__wordmark" aria-label="GRINDFATHER Coffee Co. — return to top">GRINDFATHER</a>
+
+    <nav class="footer__social" aria-label="Social media links">
+      <a href="https://instagram.com/the_grindfather_coffee" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in new tab)">IG</a>
+      <span class="footer__sep" aria-hidden="true">/</span>
+      <a href="https://facebook.com/p/The-Grindfather-Coffee-61575198692256" target="_blank" rel="noopener noreferrer" aria-label="Facebook (opens in new tab)">FB</a>
+    </nav>
+
+    <p class="footer__meta">
+      <span>GymVision, Pentwyn CF23 8HE</span>
+      <span class="footer__sep" aria-hidden="true">/</span>
+      <span>Riverside Market CF11 6AN</span>
+      <span class="footer__sep" aria-hidden="true">/</span>
+      <time datetime="2026">&copy; 2026 GRINDFATHER Coffee Co.</time>
+    </p>
+  </div>
+
+  <div class="footer__legal">
+    <div class="footer__legal-inner">
+      <details class="legal-block">
+        <summary class="legal-block__trigger">Terms &amp; Conditions</summary>
+        <div class="legal-block__body">
+          <ol class="legal-list">
+            <li>GRINDFATHER Coffee Co. trades from GymVision, Croescadarn Close, Pentwyn, Cardiff CF23 8HE (Mon–Fri) and Riverside Market, Fitzhamon Embankment, Cardiff CF11 6AN (Sundays).</li>
+            <li>Prices in GBP, inclusive of VAT where applicable. Payment due at point of purchase. Cash and major debit/credit cards accepted.</li>
+            <li>Products may contain or come into contact with the 14 major allergens (gluten, dairy, nuts, soya, eggs). Inform staff of any allergies before ordering.</li>
+            <li>Event/private booking deposits may be non-refundable. Cancellations fewer than 14 days before event may forfeit deposit.</li>
+            <li>Governed by the laws of England and Wales.</li>
+          </ol>
+          <p class="legal-contact">Contact: <a href="mailto:thegrindfathercoffee@gmail.com">thegrindfathercoffee@gmail.com</a></p>
+        </div>
+      </details>
+
+      <details class="legal-block">
+        <summary class="legal-block__trigger">Privacy Policy</summary>
+        <div class="legal-block__body">
+          <p><strong>Data collected:</strong> name, email, message content (enquiries); booking details; IP/browser/pages (website analytics).</p>
+          <p>Data not sold. Retained up to 2 years after last contact.</p>
+          <p><strong>Rights:</strong> access, correction, erasure, restriction, portability — email <a href="mailto:thegrindfathercoffee@gmail.com">thegrindfathercoffee@gmail.com</a></p>
+          <p>ICO complaints: <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a> / 0303 123 1113</p>
+          <p class="legal-contact">Last updated 17 May 2026.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--ink);
+    border-top: 1px solid var(--ink-border);
+  }
+
+  .footer__inner {
+    max-width: 72rem;
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 2.5rem 2.5rem;
+  }
+
+  .footer__wordmark {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    color: var(--paper);
+    transition: color 200ms var(--ease-out-quart);
+  }
+
+  @media (hover: hover) {
+    .footer__wordmark:hover {
+      color: oklch(96% 0.006 85 / 0.7);
+    }
+  }
+
+  .footer__wordmark:focus-visible {
+    outline: 2px solid var(--paper);
+    outline-offset: 4px;
+    border-radius: 1px;
+  }
+
+  .footer__social {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+  }
+
+  .footer__social a {
+    transition: color 200ms var(--ease-out-quart);
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  @media (hover: hover) {
+    .footer__social a:hover {
+      color: var(--paper);
+    }
+  }
+
+  .footer__social a:focus-visible {
+    outline: 2px solid var(--paper);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  .footer__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+  }
+
+  .footer__sep {
+    color: var(--ink-border);
+    font-weight: 300;
+  }
+
+  /* Legal accordion */
+  .footer__legal {
+    border-top: 1px solid var(--ink-border);
+    padding: 0 2.5rem;
+  }
+
+  .footer__legal-inner {
+    max-width: 72rem;
+    margin-inline: auto;
+    display: flex;
+    gap: 0;
+    flex-direction: column;
+  }
+
+  .legal-block {
+    border-bottom: 1px solid var(--ink-border);
+  }
+
+  .legal-block__trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1.125rem 0;
+    min-height: 44px;
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    cursor: pointer;
+    list-style: none;
+    transition: color 200ms var(--ease-out-quart);
+  }
+
+  .legal-block__trigger::-webkit-details-marker {
+    display: none;
+  }
+
+  .legal-block__trigger::after {
+    content: '+';
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--ink-border);
+    transition: transform 200ms var(--ease-out-quart);
+  }
+
+  details[open] .legal-block__trigger::after {
+    transform: rotate(45deg);
+  }
+
+  @media (hover: hover) {
+    .legal-block__trigger:hover {
+      color: var(--paper);
+    }
+  }
+
+  .legal-block__body {
+    padding-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .legal-block__body p,
+  .legal-block__body li {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    line-height: 1.65;
+    color: oklch(45% 0.006 85);
+    max-width: 70ch;
+  }
+
+  .legal-block__body strong {
+    font-weight: 500;
+    color: oklch(55% 0.006 85);
+  }
+
+  .legal-block__body a {
+    color: oklch(60% 0.006 85);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 200ms var(--ease-out-quart);
+  }
+
+  @media (hover: hover) {
+    .legal-block__body a:hover {
+      color: var(--paper);
+    }
+  }
+
+  .legal-list {
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .legal-contact {
+    margin-top: 0.25rem;
+  }
+
+  @media (max-width: 860px) {
+    .footer__inner {
+      justify-content: flex-start;
+    }
+
+    .footer__meta {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer__inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 2rem 1.25rem;
+    }
+
+    .footer__legal {
+      padding: 0 1.25rem;
+    }
+  }
+</style>

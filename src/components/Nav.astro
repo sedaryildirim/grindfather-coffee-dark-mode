@@ -1,0 +1,304 @@
+<header class="nav" id="nav">
+  <a href="#" class="nav__wordmark" aria-label="GRINDFATHER Coffee Co. — return to top">
+    <img src={`${import.meta.env.BASE_URL}logos/grindfather-logo.webp`} alt="" class="nav__logo" aria-hidden="true" width="64" height="64" />
+    GRINDFATHER
+  </a>
+
+  <nav class="nav__desktop" aria-label="Site navigation">
+    <ul class="nav__links" role="list">
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#menu">MENU</a></li>
+      <li><a href="#visit">VISIT</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <button
+    class="nav__toggle"
+    aria-label="Open navigation"
+    aria-expanded="false"
+    aria-controls="nav-drawer"
+  >
+    <span class="nav__toggle-bar"></span>
+    <span class="nav__toggle-bar"></span>
+    <span class="nav__toggle-bar"></span>
+  </button>
+</header>
+
+<div class="nav__drawer" id="nav-drawer" aria-hidden="true">
+  <nav aria-label="Mobile navigation">
+    <ul class="nav__drawer-links" role="list">
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#menu">MENU</a></li>
+      <li><a href="#visit">VISIT</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+</div>
+
+<script>
+  const toggle = document.querySelector('.nav__toggle') as HTMLButtonElement | null;
+  const drawer = document.getElementById('nav-drawer');
+  const drawerLinks = drawer?.querySelectorAll('a');
+
+  function openDrawer() {
+    if (!toggle || !drawer) return;
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Close navigation');
+    drawer.removeAttribute('aria-hidden');
+    drawer.classList.add('nav__drawer--open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    if (!toggle || !drawer) return;
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open navigation');
+    drawer.setAttribute('aria-hidden', 'true');
+    drawer.classList.remove('nav__drawer--open');
+    document.body.style.overflow = '';
+  }
+
+  toggle?.addEventListener('click', () => {
+    drawer?.classList.contains('nav__drawer--open') ? closeDrawer() : openDrawer();
+  });
+
+  drawerLinks?.forEach(link => link.addEventListener('click', closeDrawer));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer?.classList.contains('nav__drawer--open')) closeDrawer();
+  });
+
+  // Scroll state
+  const navEl = document.getElementById('nav');
+  const heroEl = document.querySelector('.hero');
+  if (navEl && heroEl) {
+    const scrollObs = new IntersectionObserver(
+      ([entry]) => navEl.classList.toggle('nav--scrolled', !entry.isIntersecting),
+      { threshold: 0 }
+    );
+    scrollObs.observe(heroEl);
+  }
+</script>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.375rem 2.5rem;
+    background-color: var(--ink);
+    border-bottom: 1px solid var(--ink-border);
+    transition: background-color 350ms var(--ease-out-quart), border-color 350ms var(--ease-out-quart);
+  }
+
+  .nav--scrolled {
+    background-color: oklch(7% 0.008 155 / 0.96);
+    border-bottom-color: oklch(24% 0.008 155);
+  }
+
+  .nav__wordmark {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    color: var(--paper);
+    transition: color 200ms var(--ease-out-quart), letter-spacing 350ms var(--ease-out-expo);
+    position: relative;
+    z-index: 101;
+  }
+
+  .nav__logo {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+    flex-shrink: 0;
+    mix-blend-mode: lighten;
+    transition: transform 400ms var(--ease-out-quart);
+  }
+
+  @media (hover: hover) {
+    .nav__wordmark:hover .nav__logo {
+      transform: rotate(18deg) scale(1.1);
+    }
+
+    .nav__wordmark:hover {
+      color: oklch(96% 0.006 85 / 0.7);
+      letter-spacing: 0.12em;
+    }
+  }
+
+  /* Desktop nav */
+  .nav__links {
+    list-style: none;
+    display: flex;
+    gap: 2.25rem;
+  }
+
+  .nav__links a {
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--ink-muted);
+    transition: color 200ms var(--ease-out-quart);
+  }
+
+  @media (hover: hover) {
+    .nav__links a:hover {
+      color: var(--paper);
+    }
+  }
+
+  .nav__links a:active {
+    opacity: 0.6;
+  }
+
+  .nav__links a:focus-visible {
+    outline: 2px solid var(--paper);
+    outline-offset: 4px;
+    border-radius: 1px;
+  }
+
+  /* Hamburger toggle — hidden on desktop */
+  .nav__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 101;
+  }
+
+  .nav__toggle:focus-visible {
+    outline: 2px solid var(--paper);
+    outline-offset: 4px;
+    border-radius: 1px;
+  }
+
+  .nav__toggle-bar {
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--paper);
+    transform-origin: center;
+    transition:
+      transform 300ms var(--ease-out-quart),
+      opacity 200ms var(--ease-out-quart);
+  }
+
+  /* X state */
+  .nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+  .nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+
+  /* Drawer */
+  .nav__drawer {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    background-color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 6rem 2.5rem 4rem;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition:
+      transform 380ms var(--ease-out-quart),
+      opacity 280ms var(--ease-out-quart);
+    pointer-events: none;
+  }
+
+  .nav__drawer--open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav__drawer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--ink-border);
+  }
+
+  .nav__drawer-links li {
+    border-bottom: 1px solid var(--ink-border);
+  }
+
+  .nav__drawer-links a {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 12vw, 4.5rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    color: var(--paper);
+    padding: 1rem 0;
+    transition: color 200ms var(--ease-out-quart);
+  }
+
+  @media (hover: hover) {
+    .nav__drawer-links a:hover {
+      color: oklch(96% 0.006 85 / 0.5);
+    }
+  }
+
+  .nav__drawer-links a:focus-visible {
+    outline: 2px solid var(--paper);
+    outline-offset: 4px;
+    border-radius: 1px;
+  }
+
+  @media (max-width: 640px) {
+    .nav {
+      padding: 1rem 1.25rem;
+    }
+
+    .nav__desktop {
+      display: none;
+    }
+
+    .nav__toggle {
+      display: flex;
+    }
+
+    .nav__drawer {
+      padding: 5rem 1.25rem 3rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav__drawer {
+      transition: opacity 150ms linear;
+      transform: none;
+    }
+    .nav {
+      transition: none;
+    }
+    .nav__logo {
+      transition: none;
+    }
+  }
+</style>

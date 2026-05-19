@@ -1,0 +1,322 @@
+<section class="hero" aria-label="GRINDFATHER Coffee Co.">
+  <div class="hero__bg" aria-hidden="true">
+    <img
+      src="https://images.unsplash.com/photo-1542181961-9590d0c79dab?auto=format&fit=crop&w=1600&q=80"
+      alt=""
+      width="1600"
+      height="1067"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <div class="hero__overlay"></div>
+  </div>
+
+  <div class="hero__content">
+    <h1 class="hero__headline">
+      <span class="hero__line"><span class="hero__line-inner">ROASTED</span></span>
+      <span class="hero__line"><span class="hero__line-inner">BY EAR.</span></span>
+    </h1>
+    <a href="#menu" class="hero__cta" aria-label="View our menu">
+      <span>VIEW MENU</span>
+      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M7 1v12M1 7l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <span>Espresso &amp; Drip</span>
+      <span class="ticker__dot">·</span>
+      <span>Single Origin</span>
+      <span class="ticker__dot">·</span>
+      <span>Slow Roast Daily</span>
+      <span class="ticker__dot">·</span>
+      <span>Cold Brew on Tap</span>
+      <span class="ticker__dot">·</span>
+      <span>Pastry &amp; Toast</span>
+      <span class="ticker__dot">·</span>
+      <span>Wholesale Beans</span>
+      <span class="ticker__dot">·</span>
+      <span>Brewing Classes</span>
+      <span class="ticker__dot">·</span>
+      <span>Subscription</span>
+      <span class="ticker__dot">·</span>
+      <span>Espresso &amp; Drip</span>
+      <span class="ticker__dot">·</span>
+      <span>Single Origin</span>
+      <span class="ticker__dot">·</span>
+      <span>Slow Roast Daily</span>
+      <span class="ticker__dot">·</span>
+      <span>Cold Brew on Tap</span>
+      <span class="ticker__dot">·</span>
+      <span>Pastry &amp; Toast</span>
+      <span class="ticker__dot">·</span>
+      <span>Wholesale Beans</span>
+      <span class="ticker__dot">·</span>
+      <span>Brewing Classes</span>
+      <span class="ticker__dot">·</span>
+      <span>Subscription</span>
+      <span class="ticker__dot">·</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    height: 100svh;
+    min-height: 36rem;
+    background-color: var(--ink);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    opacity: 0.88;
+    filter: grayscale(100%) contrast(1.2) brightness(0.55);
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      var(--ink) 12%,
+      oklch(10% 0.008 155 / 0.82) 32%,
+      oklch(10% 0.008 155 / 0.35) 58%,
+      transparent 78%
+    );
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    padding: 3rem 2.5rem 0;
+    margin-top: auto;
+    margin-bottom: 3rem;
+  }
+
+  .hero__headline {
+    font-family: var(--font-display);
+    font-size: clamp(5rem, 15vw, 11rem);
+    font-weight: 900;
+    line-height: 0.84;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+    text-wrap: balance;
+    margin-bottom: 2.75rem;
+  }
+
+  .hero__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    min-height: 44px;
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--paper);
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--brick);
+    transition: border-color 250ms var(--ease-out-quart), color 250ms var(--ease-out-quart);
+    animation: cta-in 500ms var(--ease-out-quart) 580ms both;
+  }
+
+  .hero__cta:active {
+    opacity: 0.7;
+  }
+
+  .hero__cta:focus-visible {
+    outline: 2px solid var(--paper);
+    outline-offset: 4px;
+    border-radius: 1px;
+  }
+
+  /* Arrow nudge and border on hover — pointer devices only */
+  .hero__cta svg {
+    transition: transform 200ms var(--ease-out-quart);
+  }
+
+  @media (hover: hover) {
+    .hero__cta:hover {
+      border-color: var(--brick-light);
+      color: var(--paper);
+    }
+
+    .hero__cta:hover svg {
+      transform: translateY(4px);
+    }
+  }
+
+  /* Headline line-by-line reveal */
+  .hero__line {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.06em;
+  }
+
+  .hero__line-inner {
+    display: block;
+    animation: line-rise 800ms var(--ease-out-expo) both;
+  }
+
+  .hero__line:nth-child(1) .hero__line-inner { animation-delay: 80ms; }
+  .hero__line:nth-child(2) .hero__line-inner { animation-delay: 260ms; }
+
+  @keyframes line-rise {
+    from {
+      transform: translateY(110%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes cta-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.75rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Ticker */
+  .ticker {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-top: 1px solid var(--ink-border);
+    padding: 0.875rem 0;
+    background-color: var(--ink);
+  }
+
+  .ticker__track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    animation: ticker-scroll 28s linear infinite;
+    white-space: nowrap;
+  }
+
+  .ticker__track span {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .ticker__dot {
+    color: var(--brick) !important;
+    opacity: 0.6;
+  }
+
+  @keyframes ticker-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @media (hover: hover) {
+    .ticker:hover .ticker__track {
+      animation-play-state: paused;
+    }
+  }
+
+  /* Hero content exits as you scroll away — fades up and out */
+  @supports (animation-timeline: scroll()) {
+    .hero__content {
+      animation: hero-content-exit linear both;
+      animation-timeline: scroll(root);
+      animation-range: 10vh 70vh;
+      will-change: opacity, transform;
+    }
+
+    @keyframes hero-content-exit {
+      from { opacity: 1; transform: none; }
+      to   { opacity: 0; transform: translateY(-5rem) scale(0.97); }
+    }
+
+    /* Background photo creeps up slightly as you scroll — adds depth */
+    .hero__bg img {
+      animation: hero-bg-drift linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0vh 100vh;
+    }
+
+    @keyframes hero-bg-drift {
+      from { transform: scale(1) translateY(0); }
+      to   { transform: scale(1.06) translateY(-4%); }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ticker__track {
+      animation: none;
+    }
+    .hero__line-inner {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+    .hero__cta {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero__content {
+      padding: 2rem 1.25rem 0;
+      margin-bottom: 2rem;
+    }
+
+    .hero__headline {
+      font-size: clamp(4rem, 17vw, 6.5rem);
+    }
+  }
+
+  /* Landscape phones: reduce hero height so content doesn't disappear below fold */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+      min-height: 20rem;
+      height: auto;
+      padding-bottom: 1.5rem;
+    }
+
+    .hero__content {
+      margin-top: 3.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero__headline {
+      font-size: clamp(2.5rem, 8vh, 4rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .ticker {
+      padding: 0.625rem 0;
+    }
+  }
+</style>

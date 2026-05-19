@@ -1,0 +1,429 @@
+<section class="location" id="visit" aria-labelledby="location-heading">
+  <div class="location__inner">
+    <div class="location__summary" data-reveal data-delay="1">
+      <h2 class="location__headline" id="location-heading">
+        <span class="location__accent">TWO</span> HOMES<br />FOR GRINDFATHER<br />COFFEE.
+      </h2>
+      <p class="location__summary-text">
+        Weekday mornings at GymVision in Pentwyn. Sundays at Riverside Market opposite
+        the Principality Stadium.
+      </p>
+    </div>
+
+    <div class="location__grid">
+
+      <!-- GymVision -->
+      <div class="location__card" data-reveal data-delay="2">
+        <div class="location__card-header">
+          <p class="location__venue-label">MON–FRI</p>
+          <h3 class="location__venue-name">GYMVISION</h3>
+        </div>
+        <address class="location__address">
+          Avenue Industrial Park<br />
+          Croescadarn Close, Pentwyn<br />
+          Cardiff CF23 8HE
+        </address>
+        <a
+          href="https://gymvision.co.uk"
+          class="location__site-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GymVision website (opens in new tab)"
+        >gymvision.co.uk ↗</a>
+        <table class="hours-table" aria-label="GymVision opening hours">
+          <tbody>
+            <tr>
+              <th scope="row">MON–FRI</th>
+              <td>06:30</td>
+              <td>15:00</td>
+            </tr>
+            <tr class="hours-table__closed">
+              <th scope="row">SAT</th>
+              <td colspan="2">Closed</td>
+            </tr>
+            <tr class="hours-table__closed">
+              <th scope="row">SUN</th>
+              <td colspan="2">See Riverside Market</td>
+            </tr>
+          </tbody>
+        </table>
+        <a
+          href="https://maps.google.com/?q=Croescadarn+Close+Pentwyn+Cardiff+CF23+8HE"
+          class="location__map-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Get directions to GymVision on Google Maps (opens in new tab)"
+        >
+          GET DIRECTIONS
+          <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <p class="location__status" aria-live="polite" id="gymvision-status"></p>
+      </div>
+
+      <!-- Riverside Market -->
+      <div class="location__card" data-reveal data-delay="3">
+        <div class="location__card-header">
+          <p class="location__venue-label">SUNDAY</p>
+          <h3 class="location__venue-name">RIVERSIDE MARKET</h3>
+        </div>
+        <address class="location__address">
+          Fitzhamon Embankment<br />
+          Cardiff CF11 6AN<br />
+          Opposite Principality Stadium
+        </address>
+        <a
+          href="https://riversidemarket.org.uk"
+          class="location__site-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Riverside Market website (opens in new tab)"
+        >riversidemarket.org.uk ↗</a>
+        <table class="hours-table" aria-label="Riverside Market opening hours">
+          <tbody>
+            <tr>
+              <th scope="row">SUN</th>
+              <td>10:00</td>
+              <td>14:00</td>
+            </tr>
+            <tr class="hours-table__closed">
+              <th scope="row">MON–SAT</th>
+              <td colspan="2">See GymVision</td>
+            </tr>
+          </tbody>
+        </table>
+        <a
+          href="https://maps.google.com/?q=Fitzhamon+Embankment+Cardiff+CF11+6AN"
+          class="location__map-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Get directions to Riverside Market on Google Maps (opens in new tab)"
+        >
+          GET DIRECTIONS
+          <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <p class="location__status" aria-live="polite" id="riverside-status"></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  function getStatuses() {
+    const now = new Date();
+    const day = now.getDay(); // 0=Sun, 1=Mon…6=Sat
+    const hour = now.getHours();
+    const minute = now.getMinutes();
+    const time = hour + minute / 60;
+
+    const gymOpen = day >= 1 && day <= 5 && time >= 6.5 && time < 15;
+    const riversideOpen = day === 0 && time >= 10 && time < 14;
+
+    const gymEl = document.getElementById('gymvision-status');
+    const riverEl = document.getElementById('riverside-status');
+
+    if (gymEl) {
+      gymEl.textContent = gymOpen ? 'OPEN NOW' : 'CLOSED';
+      gymEl.dataset.open = gymOpen ? 'true' : 'false';
+    }
+    if (riverEl) {
+      riverEl.textContent = riversideOpen ? 'OPEN NOW' : 'CLOSED';
+      riverEl.dataset.open = riversideOpen ? 'true' : 'false';
+    }
+  }
+
+  getStatuses();
+</script>
+
+<style>
+  .location {
+    background-color: var(--paper);
+    color: var(--ink);
+    padding: 6rem 2.5rem 9rem;
+  }
+
+  .location__inner {
+    max-width: 72rem;
+    margin-inline: auto;
+  }
+
+  .location__accent {
+    color: var(--brick);
+  }
+
+  .location__summary {
+    margin-bottom: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+  }
+
+  .location__headline {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6.5vw, 5rem);
+    font-weight: 900;
+    line-height: 0.87;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .location__summary-text {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: oklch(28% 0.008 155);
+    max-width: 44ch;
+  }
+
+  .location__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    border-top: 1px solid oklch(10% 0.008 155 / 0.12);
+    padding-top: 3rem;
+  }
+
+  .location__card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .location__card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .location__venue-label {
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brick);
+  }
+
+  .location__venue-name {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    line-height: 0.92;
+    color: var(--ink);
+  }
+
+  .location__address {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.65;
+    color: oklch(22% 0.008 155);
+    font-style: normal;
+  }
+
+  .location__site-link {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--paper-muted);
+    transition: color 200ms var(--ease-out-quart);
+    margin-top: -0.5rem;
+  }
+
+  @media (hover: hover) {
+    .location__site-link:hover {
+      color: var(--ink);
+    }
+  }
+
+  .hours-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .hours-table tr {
+    border-bottom: 1px solid oklch(10% 0.008 155 / 0.1);
+  }
+
+  .hours-table th,
+  .hours-table td {
+    padding: 0.875rem 0;
+    text-align: left;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 1rem;
+    color: oklch(18% 0.008 155);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .hours-table th {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--paper-muted);
+    text-transform: uppercase;
+    padding-right: 2rem;
+    white-space: nowrap;
+  }
+
+  .hours-table__closed td {
+    color: var(--paper-muted);
+    font-size: 0.8125rem;
+  }
+
+  .location__map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid oklch(10% 0.008 155 / 0.3);
+    transition: border-color 200ms var(--ease-out-quart);
+    width: fit-content;
+  }
+
+  @media (hover: hover) {
+    .location__map-link:hover {
+      border-color: var(--ink);
+    }
+  }
+
+  .location__map-link:active {
+    opacity: 0.7;
+  }
+
+  .location__map-link:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 4px;
+    border-radius: 1px;
+  }
+
+  .location__status {
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--paper-muted);
+    margin-top: -0.75rem;
+  }
+
+  .location__status[data-open="true"] {
+    color: oklch(42% 0.14 142);
+  }
+
+  .location__status[data-open="false"] {
+    color: var(--paper-muted);
+  }
+
+  @media (max-width: 860px) {
+    .location__summary {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .location__grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .location {
+      padding: 4rem 1.25rem 6rem;
+    }
+  }
+
+  /* Headline enters from left, summary text from right */
+  @supports (animation-timeline: scroll()) {
+    .location__headline {
+      animation: loc-headline-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 50%;
+    }
+
+    @keyframes loc-headline-in {
+      from { opacity: 0; transform: translateX(-3.5rem); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    .location__summary-text {
+      animation: loc-text-in linear both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 55%;
+    }
+
+    @keyframes loc-text-in {
+      from { opacity: 0; transform: translateX(2rem); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* The dividing line stamps out from center.
+       position: absolute keeps ::before out of the grid flow. */
+    .location__grid {
+      border-top: none;
+      position: relative;
+    }
+
+    .location__grid::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background-color: oklch(10% 0.008 155 / 0.12);
+      animation: border-stamp linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+
+    @keyframes border-stamp {
+      from { clip-path: inset(0 50% 0 50%); }
+      to   { clip-path: inset(0 0% 0 0%); }
+    }
+
+    /* Location cards slide up staggered */
+    .location__card:nth-child(1) {
+      animation: loc-card-in linear both;
+      animation-timeline: view();
+      animation-range: entry 5% entry 50%;
+    }
+
+    .location__card:nth-child(2) {
+      animation: loc-card-in linear both;
+      animation-timeline: view();
+      animation-range: entry 15% entry 60%;
+    }
+
+    @keyframes loc-card-in {
+      from { opacity: 0; transform: translateY(2.5rem); }
+      to   { opacity: 1; transform: none; }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .location__headline,
+    .location__summary-text,
+    .location__card {
+      animation: none !important;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>

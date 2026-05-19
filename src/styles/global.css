@@ -1,0 +1,106 @@
+:root {
+  --ink: #000f08;
+  --ink-border: oklch(18% 0.008 155);
+  --ink-muted: oklch(52% 0.008 155);
+  --paper: oklch(96% 0.006 85);
+  --paper-muted: oklch(40% 0.006 85);
+  --brick: #fb3640;
+  --brick-deep: oklch(44% 0.24 25);
+  --brick-light: oklch(70% 0.22 25);
+
+  --font-display: 'Big Shoulders Display', 'Arial Narrow', Arial, sans-serif;
+  --font-body: 'Barlow', system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.65;
+  color: var(--paper);
+  background-color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Scroll reveal */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition:
+    opacity 700ms var(--ease-out-expo),
+    transform 700ms var(--ease-out-expo);
+}
+
+[data-reveal][data-delay="1"] { transition-delay: 100ms; }
+[data-reveal][data-delay="2"] { transition-delay: 220ms; }
+[data-reveal][data-delay="3"] { transition-delay: 340ms; }
+[data-reveal][data-delay="4"] { transition-delay: 460ms; }
+[data-reveal][data-delay="5"] { transition-delay: 580ms; }
+[data-reveal][data-delay="6"] { transition-delay: 700ms; }
+
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* In browsers with SDA support, scroll-driven animations own every reveal.
+   Reset [data-reveal] to its final visible state so SDA keyframes take over. */
+@supports (animation-timeline: scroll()) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,27 @@
+# Memory
+
+> Chronological action log. Hooks and AI append to this file automatically.
+> Old sessions are consolidated by the daemon weekly.
+| 22:50 | impeccable distill: removed 4 eyebrow labels (hero, about, menu, reviews) | Hero.astro, About.astro, Menu.astro, Contact.astro | done | ~800 |
+| 22:51 | impeccable shape: reordered contact section (info first, events second, reviews last), fixed aria-labelledby | Contact.astro | done | ~300 |
+| 22:55 | impeccable craft hero: changed hero image from 22% opacity hint to 88% + grayscale/contrast press-photo treatment; added editorial image strip to About | Hero.astro, About.astro | done | ~600 |
+| 22:57 | impeccable adapt: replaced compressed mobile nav with hamburger + full-screen drawer (Big Shoulders Display links) | Nav.astro | done | ~500 |
+| 22:59 | impeccable layout: broke identical 3x2 reviews grid into featured (large, full-width) + 2-col secondary + full-width closer | Contact.astro | done | ~400 |
+| 23:01 | designqc: captured 6 screenshots (213KB, ~15000 tok) | / | ready for eval | ~0 |
+| 23:10 | impeccable polish: global.css token contrast fixes (--ink-muted 38%→52%, --paper-muted 55%→40%) | global.css | done | ~100 |
+| 23:11 | impeccable polish: skip link href #about→#main + added id="main" to <main> | index.astro | done | ~50 |
+| 23:11 | impeccable polish: footer wordmark p→a with hover/focus styles | Footer.astro | done | ~50 |
+| 23:11 | impeccable polish: Henry review em dash removed | Contact.astro | done | ~30 |
+| 23:11 | impeccable polish: menu__item-varieties + shakes__tier-price/note oklch(30%)→var(--ink-muted) WCAG fix | Menu.astro | done | ~50 |
+| 23:17 | designqc: captured 6 screenshots (309KB, ~15000 tok) | / | ready for eval | ~0 |
+| 23:18 | designqc: captured 6 screenshots (237KB, ~15000 tok) | / | ready for eval | ~0 |
+| 23:30 | designqc: captured 6 screenshots (242KB, ~15000 tok) | / | ready for eval | ~0 |
+| 08:44 | designqc: captured 6 screenshots (251KB, ~15000 tok) | / | ready for eval | ~0 |
+| 08:52 | impeccable overdrive C: full-page scroll narrative — IO gated behind CSS.supports(), SDA reveal system across all sections: hero exit fold, about conflict-parallax (headline←, strip→), menu category rotateX flip + item stagger, location border-stamp, contact events rise | index.astro, global.css, Hero.astro, About.astro, Menu.astro, Location.astro, Contact.astro | done | ~3000 |
+| 08:59 | designqc: captured 6 screenshots (246KB, ~15000 tok) | / | ready for eval | ~0 |
+| 09:12 | designqc: captured 6 screenshots (309KB, ~15000 tok) | / | ready for eval | ~0 |
+| 09:15 | designqc: captured 6 screenshots (246KB, ~15000 tok) | / | ready for eval | ~0 |
+| 09:19 | designqc: captured 6 screenshots (256KB, ~15000 tok) | / | ready for eval | ~0 |
+| 09:21 | designqc: captured 6 screenshots (257KB, ~15000 tok) | / | ready for eval | ~0 |
+| 09:23 | designqc: captured 6 screenshots (257KB, ~15000 tok) | / | ready for eval | ~0 |
+| 09:26 | designqc: captured 6 screenshots (258KB, ~15000 tok) | / | ready for eval | ~0 |

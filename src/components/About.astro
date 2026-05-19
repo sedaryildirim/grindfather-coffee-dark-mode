@@ -1,0 +1,251 @@
+<section class="about" id="about" aria-labelledby="about-heading">
+  <div class="about__image-strip" data-reveal aria-hidden="true">
+    <img
+      src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=1600&q=80"
+      alt=""
+      width="1600"
+      height="500"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+  <div class="about__inner">
+    <div class="about__body">
+      <h2 class="about__headline" id="about-heading" data-reveal>
+        WE STARTED<br />WITH <span class="about__accent">ONE</span><br />DRUM.
+      </h2>
+      <div class="about__right" data-reveal data-delay="1">
+        <div class="about__text">
+          <p>
+            We started with a single drum roaster, a notebook of cupping scores, and a stubborn
+            belief that great coffee should taste like the place it came from, not like itself.
+            A decade on, we still roast every batch by ear.
+          </p>
+          <p>
+            Pulled on a 1969 Faema E61 we restored over two winters. Sourced from farmers we
+            know by name and visit each year. Every bag ships within 72 hours of leaving the drum.
+          </p>
+        </div>
+
+        <dl class="about__facts">
+          <div class="about__fact">
+            <dt>Direct Trade</dt>
+            <dd>Sourced from farmers we know by name and visit each year.</dd>
+          </div>
+          <div class="about__fact">
+            <dt>Roasted to Order</dt>
+            <dd>Every bag ships within 72 hours of leaving the drum.</dd>
+          </div>
+          <div class="about__fact">
+            <dt>Community First</dt>
+            <dd>Free brew classes and barista trainings for locals every Sunday.</dd>
+          </div>
+          <div class="about__fact">
+            <dt>Made by Hand</dt>
+            <dd>Pulled on a 1969 Faema E61 we restored over two winters.</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    background-color: var(--paper);
+    color: var(--ink);
+    padding: 3.5rem 0 7rem;
+    overflow-x: clip;
+  }
+
+  .about__inner {
+    max-width: 72rem;
+    margin-inline: auto;
+  }
+
+  .about__image-strip {
+    width: 100%;
+    margin-bottom: 4rem;
+    overflow: hidden;
+  }
+
+  .about__image-strip img {
+    width: 100%;
+    height: clamp(18rem, 38vw, 28rem);
+    object-fit: cover;
+    object-position: center 35%;
+    filter: grayscale(100%) contrast(1.1) brightness(0.85);
+    display: block;
+  }
+
+  .about__body {
+    padding-inline: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about__headline {
+    font-family: var(--font-display);
+    font-size: clamp(3.75rem, 8.5vw, 7rem);
+    font-weight: 900;
+    line-height: 0.87;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .about__accent {
+    color: var(--brick);
+  }
+
+  .about__right {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .about__text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.375rem;
+  }
+
+  .about__text p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: oklch(18% 0.008 155);
+    max-width: 52ch;
+  }
+
+  .about__facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid oklch(10% 0.008 155 / 0.12);
+  }
+
+  .about__fact {
+    padding: 1.375rem 1.5rem 1.375rem 0;
+    border-bottom: 1px solid oklch(10% 0.008 155 / 0.12);
+  }
+
+  .about__fact:nth-child(even) {
+    padding-left: 1.5rem;
+    border-left: 1px solid oklch(10% 0.008 155 / 0.12);
+  }
+
+  .about__fact dt {
+    font-family: var(--font-display);
+    font-size: clamp(1.125rem, 2.5vw, 1.625rem);
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--ink);
+    line-height: 0.95;
+    margin-bottom: 0.625rem;
+  }
+
+  .about__fact dd {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    line-height: 1.55;
+    color: oklch(38% 0.008 155);
+  }
+
+  @media (max-width: 860px) {
+    .about__image-strip {
+      margin-bottom: 3rem;
+    }
+
+    .about__body {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .about__text p {
+      max-width: 60ch;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .about {
+      padding: 2.5rem 0 5rem;
+    }
+
+    .about__image-strip {
+      margin-bottom: 2.5rem;
+    }
+
+    .about__body {
+      padding-inline: 1.25rem;
+    }
+
+    .about__facts {
+      grid-template-columns: 1fr;
+    }
+
+    .about__fact:nth-child(even) {
+      padding-left: 0;
+      border-left: none;
+    }
+  }
+
+  @supports (animation-timeline: scroll()) {
+    /* Image strip enters from the right */
+    .about__image-strip {
+      animation: about-strip-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+
+    @keyframes about-strip-in {
+      from { opacity: 0; transform: translateX(5rem); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* Parallax continues on the img itself once in view */
+    .about__image-strip img {
+      animation: img-parallax linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+
+    @keyframes img-parallax {
+      from { transform: scale(1.1) translateY(-5%); }
+      to   { transform: scale(1.1) translateY(5%); }
+    }
+
+    /* Headline enters from the left — opposite direction to strip */
+    .about__headline {
+      animation: about-headline-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+
+    @keyframes about-headline-in {
+      from { opacity: 0; transform: translateX(-4rem); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* Body text follows behind headline */
+    .about__right {
+      animation: about-right-in linear both;
+      animation-timeline: view();
+      animation-range: entry 15% entry 65%;
+    }
+
+    @keyframes about-right-in {
+      from { opacity: 0; transform: translateY(2rem); }
+      to   { opacity: 1; transform: none; }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .about__image-strip img {
+      animation: none;
+    }
+  }
+</style>
