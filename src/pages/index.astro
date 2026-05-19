@@ -196,6 +196,16 @@ import '../styles/global.css';
           scrollTopBtn.classList.toggle('scroll-top--visible', visible);
           scrollTopBtn.setAttribute('aria-hidden', String(!visible));
           scrollTopBtn.tabIndex = visible ? 0 : -1;
+
+          // Detect background colour under button and invert if light
+          const rect = scrollTopBtn.getBoundingClientRect();
+          const cx = rect.left + rect.width / 2;
+          const cy = rect.top + rect.height / 2;
+          scrollTopBtn.style.visibility = 'hidden';
+          const under = document.elementFromPoint(cx, cy);
+          scrollTopBtn.style.visibility = '';
+          const isLight = !!under?.closest('[data-bg="light"]');
+          scrollTopBtn.classList.toggle('scroll-top--on-light', isLight);
         }
       }, { passive: true });
 
@@ -279,10 +289,23 @@ import '../styles/global.css';
     pointer-events: auto;
   }
 
+  .scroll-top--on-light {
+    background-color: var(--ink);
+    color: var(--brick);
+    border-color: var(--ink);
+  }
+
   @media (hover: hover) {
     .scroll-top:hover {
       background-color: var(--brick-deep);
       border-color: var(--brick-deep);
+      color: var(--ink);
+    }
+
+    .scroll-top--on-light:hover {
+      background-color: oklch(18% 0.008 155);
+      border-color: oklch(18% 0.008 155);
+      color: var(--brick);
     }
   }
 
