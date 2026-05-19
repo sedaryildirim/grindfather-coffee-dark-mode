@@ -97,7 +97,7 @@
         });
       });
     },
-    { threshold: 0.35 }
+    { rootMargin: '-20% 0px -60% 0px', threshold: 0 }
   );
   sections.forEach(s => sectionObs.observe(s));
 </script>
@@ -169,6 +169,25 @@
     letter-spacing: 0.12em;
     color: var(--ink-muted);
     transition: color 200ms var(--ease-out-quart);
+    position: relative;
+    padding-bottom: 3px;
+  }
+
+  .nav__links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--brick);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 250ms var(--ease-out-quart);
+  }
+
+  .nav__links a.nav__link--active::after {
+    transform: scaleX(1);
   }
 
   @media (hover: hover) {
