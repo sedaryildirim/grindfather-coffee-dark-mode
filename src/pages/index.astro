@@ -157,14 +157,15 @@ import '../styles/global.css';
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--ink);
-    color: var(--paper);
-    border: 1px solid var(--ink-border);
+    background-color: var(--brick);
+    color: var(--ink);
+    border: 1px solid var(--brick);
     cursor: pointer;
     opacity: 0;
     transform: translateY(0.75rem);
     pointer-events: none;
     transition:
+      background-color 200ms var(--ease-out-quart),
       border-color 200ms var(--ease-out-quart),
       opacity 250ms var(--ease-out-quart),
       transform 250ms var(--ease-out-quart);
@@ -178,7 +179,8 @@ import '../styles/global.css';
 
   @media (hover: hover) {
     .scroll-top:hover {
-      border-color: var(--brick-light);
+      background-color: var(--brick-deep);
+      border-color: var(--brick-deep);
     }
   }
 
