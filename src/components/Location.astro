@@ -123,15 +123,29 @@
     const gymOpen = day >= 1 && day <= 5 && time >= 6.5 && time < 15;
     const riversideOpen = day === 0 && time >= 10 && time < 14;
 
+    function nextGymOpening(): string {
+      if (day >= 1 && day <= 5 && time < 6.5) return 'CLOSED · Opens 06:30';
+      if (day === 0) return 'CLOSED · Opens Mon 06:30';
+      if (day === 6) return 'CLOSED · Opens Mon 06:30';
+      if (day === 5) return 'CLOSED · Opens Mon 06:30'; // Friday after 15:00
+      const names = ['', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
+      return `CLOSED · Opens ${names[day + 1]} 06:30`;
+    }
+
+    function nextRiversideOpening(): string {
+      if (day === 0 && time < 10) return 'CLOSED · Opens 10:00';
+      return 'CLOSED · Opens Sun 10:00';
+    }
+
     const gymEl = document.getElementById('gymvision-status');
     const riverEl = document.getElementById('riverside-status');
 
     if (gymEl) {
-      gymEl.textContent = gymOpen ? 'OPEN NOW' : 'CLOSED';
+      gymEl.textContent = gymOpen ? 'OPEN NOW' : nextGymOpening();
       gymEl.dataset.open = gymOpen ? 'true' : 'false';
     }
     if (riverEl) {
-      riverEl.textContent = riversideOpen ? 'OPEN NOW' : 'CLOSED';
+      riverEl.textContent = riversideOpen ? 'OPEN NOW' : nextRiversideOpening();
       riverEl.dataset.open = riversideOpen ? 'true' : 'false';
     }
   }

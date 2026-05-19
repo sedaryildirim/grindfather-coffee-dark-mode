@@ -133,6 +133,7 @@ const hotDrinks = [
     </div>
 
   </div>
+  <p class="menu__allergen">Contains allergens — please ask before ordering.</p>
 </section>
 
 <style>
@@ -331,6 +332,19 @@ const hotDrinks = [
     font-weight: 400;
     color: oklch(64% 0.008 155);
     line-height: 1.5;
+  }
+
+  .menu__allergen {
+    max-width: 56rem;
+    margin-inline: auto;
+    margin-top: 3rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+    border-top: 1px solid var(--ink-border);
+    padding-top: 1.25rem;
   }
 
   @media (max-width: 640px) {
