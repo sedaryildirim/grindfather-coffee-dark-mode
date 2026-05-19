@@ -207,12 +207,20 @@ const hotDrinks = [
     letter-spacing: 0.01em;
     color: var(--paper);
     line-height: 1;
-    transition: transform 220ms var(--ease-out-quart);
+    transition: transform 220ms var(--ease-out-quart), color 220ms var(--ease-out-quart);
   }
 
   @media (hover: hover) {
     .menu__item:hover .menu__item-name {
       transform: translateX(0.5rem);
+      color: var(--brick-light);
+    }
+  }
+
+  /* Mobile scroll spotlight — only active item gets the red fill */
+  @media (hover: none) {
+    .menu__item--scroll-active .menu__item-name {
+      color: var(--brick-light);
     }
   }
 
@@ -425,3 +433,23 @@ const hotDrinks = [
     }
   }
 </style>
+
+<script>
+  // Mobile scroll spotlight — highlights one item at a time as it enters the viewport centre
+  if (window.matchMedia('(hover: none)').matches) {
+    const items = document.querySelectorAll('.menu__item');
+
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          items.forEach(i => i.classList.remove('menu__item--scroll-active'));
+          entry.target.classList.add('menu__item--scroll-active');
+        });
+      },
+      { rootMargin: '-30% 0px -30% 0px', threshold: 0 }
+    );
+
+    items.forEach(item => obs.observe(item));
+  }
+</script>
