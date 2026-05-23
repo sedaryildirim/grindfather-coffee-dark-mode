@@ -26,3 +26,25 @@
 | 09:23 | designqc: captured 6 screenshots (257KB, ~15000 tok) | / | ready for eval | ~0 |
 | 09:26 | designqc: captured 6 screenshots (258KB, ~15000 tok) | / | ready for eval | ~0 |
 | 13:16 | Updated hero image src | src/components/Hero.astro | hero-img.webp → grindfather-hero-img-main.webp | ~50 |
+| 14:56 | designqc: captured 6 screenshots (322KB, ~15000 tok) | / | ready for eval | ~0 |
+| 14:58 | designqc: captured 6 screenshots (277KB, ~15000 tok) | / | ready for eval | ~0 |
+| 15:05 | designqc: captured 6 screenshots (276KB, ~15000 tok) | / | ready for eval | ~0 |
+| 15:13 | designqc: captured 6 screenshots (276KB, ~15000 tok) | / | ready for eval | ~0 |
+| 15:33 | designqc: captured 6 screenshots (322KB, ~15000 tok) | / | ready for eval | ~0 |
+| 15:34 | designqc: captured 6 screenshots (275KB, ~15000 tok) | / | ready for eval | ~0 |
+| 15:40 | designqc: captured 6 screenshots (275KB, ~15000 tok) | / | ready for eval | ~0 |
+| 22:50 | designqc: captured 6 screenshots (278KB, ~15000 tok) | / | ready for eval | ~0 |
+| 22:53 | designqc: captured 6 screenshots (278KB, ~15000 tok) | / | ready for eval | ~0 |
+| 23:07 | designqc: captured 6 screenshots (283KB, ~15000 tok) | / | ready for eval | ~0 |
+| 23:18 | designqc: captured 6 screenshots (284KB, ~15000 tok) | / | ready for eval | ~0 |
+| 23:24 | designqc: captured 6 screenshots (284KB, ~15000 tok) | / | ready for eval | ~0 |
+| 23:28 | designqc: captured 6 screenshots (283KB, ~15000 tok) | / | ready for eval | ~0 |
+| 23:28 | designqc: captured 6 screenshots (278KB, ~15000 tok) | / | ready for eval | ~0 |
+| 23:29 | designqc: captured 6 screenshots (267KB, ~15000 tok) | / | ready for eval | ~0 |
+| 23:30 | designqc: captured 6 screenshots (265KB, ~15000 tok) | / | ready for eval | ~0 |
+
+| $(date +%H:%M) | Critique run 3 — fixed P0 hero image (brightness 0.3 + overlay top stop), P1 mailto fallback copy, P2 review__via contrast | Hero.astro, Contact.astro | Complete — hero as dark as CSS can go; real fix requires new hero image |
+| 23:37 | designqc: captured 6 screenshots (265KB, ~15000 tok) | / | ready for eval | ~0 |
+| 23:38 | Fixed cta-note colour (ink-dim→paper-faint), review__via (paper-faint→paper-dim), added events logistics grid | Contact.astro | Done |
+| 23:43 | designqc: captured 6 screenshots (265KB, ~15000 tok) | / | ready for eval | ~0 |
+| 23:47 | designqc: captured 6 screenshots (265KB, ~15000 tok) | / | ready for eval | ~0 |

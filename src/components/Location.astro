@@ -125,9 +125,7 @@
 
     function nextGymOpening(): string {
       if (day >= 1 && day <= 5 && time < 6.5) return 'CLOSED · Opens 06:30';
-      if (day === 0) return 'CLOSED · Opens Mon 06:30';
-      if (day === 6) return 'CLOSED · Opens Mon 06:30';
-      if (day === 5) return 'CLOSED · Opens Mon 06:30'; // Friday after 15:00
+      if (day === 0 || day === 5 || day === 6) return 'CLOSED · Opens Mon 06:30';
       const names = ['', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
       return `CLOSED · Opens ${names[day + 1]} 06:30`;
     }
@@ -166,7 +164,7 @@
   }
 
   .location__accent {
-    color: var(--brick);
+    color: var(--brick-word);
   }
 
   .location__summary {
@@ -184,6 +182,7 @@
     line-height: 1.05;
     letter-spacing: -0.02em;
     color: var(--ink);
+    max-width: 16ch;
   }
 
   .location__summary-text {

@@ -20,6 +20,12 @@
 <!-- Mistakes made and corrected. Each entry prevents the same mistake recurring. -->
 <!-- Format: [YYYY-MM-DD] Description of what went wrong and what to do instead. -->
 
+- [2026-05-23] **Hero image `object-position` — CSS cannot fix a wrong source photo.** Attempting `left 40%`, `right 30%`, `85% 35%` all left GymVision supplement shelves visible; they span the full frame. The only CSS mitigation is `brightness(0.3)` + heavier overlay to obscure rather than crop. Real fix: replace hero image with coffee van exterior, latte art, or barista at the Faema E61.
+- [2026-05-23] **`<script>` inside `<style>` block is invalid HTML.** In Astro components, `<script>` must always be a sibling of `<style>`, not nested inside it.
+
 ## Decision Log
 
 <!-- Significant technical decisions with rationale. Why X was chosen over Y. -->
+
+- [2026-05-23] **`--brick-word` alias token** points to `--brick-deep: oklch(44% 0.24 25)` for editorial accent words (ONE, TWO) on light backgrounds. Distinct from interactive `--brick: oklch(60% 0.25 25)`. This preserves semantic separation between decorative and interactive brick usage.
+- [2026-05-23] **Events as standalone `<section id="events">`** rather than a div nested inside Contact. Required for IntersectionObserver to fire reliably for nav active-state tracking, and for the EVENTS nav link to be a meaningful anchor target.

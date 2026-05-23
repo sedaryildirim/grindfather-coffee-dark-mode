@@ -1,10 +1,11 @@
 ---
-const reviews = [
-  {
-    name: 'Robyn McDowall',
-    via: 'Google',
-    quote: 'Our puppy\'s favourite coffee spot. The coffee tastes amazing and the service is perfection.',
-  },
+const featuredReview = {
+  name: 'Robyn McDowall',
+  via: 'Google',
+  quote: 'Our puppy\'s favourite coffee spot. The coffee tastes amazing and the service is perfection.',
+};
+
+const secondaryReviews = [
   {
     name: 'Ben Brigode',
     via: 'Google',
@@ -25,14 +26,70 @@ const reviews = [
     via: 'Local Guide · Google',
     quote: 'Lovely coffee to fuel a workout, and great smoothies for post-workout recovery.',
   },
-  {
-    name: 'Henry',
-    via: 'Local Guide · Google',
-    quote: 'Fantastic experience having Grindfather at our event, and would absolutely use again!',
-  },
 ];
+
+const eventReview = {
+  name: 'Henry',
+  via: 'Local Guide · Google',
+  quote: 'Fantastic experience having Grindfather at our event, and would absolutely use again!',
+};
 ---
 
+<!-- Events — standalone section for nav discoverability -->
+<section class="events-section" id="events" aria-labelledby="events-heading">
+  <div class="events-section__inner">
+    <p class="contact__label">EVENTS &amp; PRIVATE BOOKINGS</p>
+    <div class="events__body">
+      <h2 class="events__headline" id="events-heading">
+        WE BRING THE<br /><span class="events__accent">BAR</span> TO YOU.
+      </h2>
+      <div class="events__right">
+        <p class="events__text">
+          Private events, weddings, pop-ups. From a 30-person corporate breakfast to a 300-guest
+          wedding. Wherever you need great coffee, we'll set up.
+        </p>
+        <ul class="events__types" role="list">
+          <li>Private Events</li>
+          <li>Weddings</li>
+          <li>Pop-ups</li>
+        </ul>
+        <dl class="events__logistics">
+          <div class="events__logistic">
+            <dt>CAPACITY</dt>
+            <dd>30 to 300 guests</dd>
+          </div>
+          <div class="events__logistic">
+            <dt>INCLUDED</dt>
+            <dd>Full setup included</dd>
+          </div>
+          <div class="events__logistic">
+            <dt>LEAD TIME</dt>
+            <dd>4 weeks minimum</dd>
+          </div>
+        </dl>
+        <a
+          href="mailto:thegrindfathercoffee@gmail.com?subject=Event%20Booking%20Enquiry&body=Name%3A%0A%0AEvent%20type%20(wedding%20%2F%20corporate%20%2F%20pop-up%20%2F%20other)%3A%0A%0ADate%3A%0A%0AGuest%20count%3A%0A%0AMessage%3A"
+          class="events__cta"
+          aria-label="Send event booking enquiry email"
+        >SEND ENQUIRY ↗</a>
+        <p class="events__cta-note">
+          We usually reply within 48 hours. Or reach us at
+          <a href="mailto:thegrindfathercoffee@gmail.com">thegrindfathercoffee@gmail.com</a>
+        </p>
+
+        <blockquote class="events__proof">
+          <p class="events__proof-quote">"{eventReview.quote}"</p>
+          <footer class="events__proof-footer">
+            <span class="review__name">{eventReview.name}</span>
+            <span class="review__via">{eventReview.via}</span>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact info + reviews -->
 <section class="contact" id="contact" aria-label="Contact">
   <div class="contact__inner">
 
@@ -59,49 +116,25 @@ const reviews = [
       </dl>
     </div>
 
-    <!-- Events -->
-    <div class="events" data-reveal data-delay="1">
-      <p class="contact__label">EVENTS &amp; PRIVATE BOOKINGS</p>
-      <div class="events__body">
-        <h2 class="events__headline">
-          WE BRING THE<br /><span class="events__accent">BAR</span> TO YOU.
-        </h2>
-        <div class="events__right">
-          <p class="events__text">
-            Private events, weddings, pop-ups. From a 30-person corporate breakfast to a 300-guest
-            wedding. Wherever you need great coffee, we'll set up.
-          </p>
-          <ul class="events__types" role="list">
-            <li>Private Events</li>
-            <li>Weddings</li>
-            <li>Pop-ups</li>
-          </ul>
-          <a
-            href="mailto:thegrindfathercoffee@gmail.com?subject=Event%20Booking%20Enquiry"
-            class="events__cta"
-            aria-label="Send event booking enquiry email"
-          >SEND ENQUIRY ↗</a>
-        </div>
-      </div>
-    </div>
-
     <!-- Reviews -->
-    <div class="reviews" data-reveal data-delay="2">
+    <div class="reviews" data-reveal data-delay="1">
       <p class="reviews__rating" aria-label="5.0 stars on Google">
         ★★★★★ <span>5.0 · Google</span>
       </p>
 
       <blockquote class="review--featured">
-        <p class="review--featured__quote">"{reviews[0].quote}"</p>
+        <p class="review--featured__quote">"{featuredReview.quote}"</p>
         <footer class="review--featured__footer">
-          <span class="review__name">{reviews[0].name}</span>
-          <span class="review__via">{reviews[0].via}</span>
+          <span class="review__name">{featuredReview.name}</span>
+          <span class="review__via">{featuredReview.via}</span>
         </footer>
       </blockquote>
 
       <ul class="reviews__secondary" role="list">
-        {reviews.slice(1).map((r, i) => (
-          <li class:list={["review--secondary", { "review--secondary--full": i === reviews.length - 2 }]}>
+        {secondaryReviews.map((r, i) => (
+          <li class:list={["review--secondary", {
+            "review--secondary--full": secondaryReviews.length % 2 !== 0 && i === secondaryReviews.length - 1
+          }]}>
             <blockquote class="review__quote">"{r.quote}"</blockquote>
             <footer class="review__footer">
               <span class="review__name">{r.name}</span>
@@ -116,6 +149,204 @@ const reviews = [
 </section>
 
 <style>
+  /* ── Shared label ── */
+  .contact__label {
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--brick-light);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  /* ── Events section (standalone) ── */
+  .events-section {
+    background-color: var(--ink);
+    padding: 8rem 2.5rem;
+    border-bottom: 1px solid var(--ink-border);
+  }
+
+  .events-section__inner {
+    max-width: 72rem;
+    margin-inline: auto;
+  }
+
+  .events__body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    border-top: 1px solid var(--ink-border);
+    padding-top: 2.5rem;
+  }
+
+  .events__headline {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 5.25rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+  }
+
+  .events__accent {
+    color: var(--brick);
+  }
+
+  .events__right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .events__text {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--paper-muted-dark);
+    max-width: 46ch;
+  }
+
+  .events__types {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--ink-border);
+  }
+
+  .events__types li {
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    padding: 0.875rem 0;
+    border-bottom: 1px solid var(--ink-border);
+  }
+
+  .events__logistics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--ink-border);
+  }
+
+  .events__logistic {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--ink-border);
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .events__logistic dt {
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .events__logistic dd {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--paper-dim);
+    line-height: 1.4;
+  }
+
+  @media (max-width: 640px) {
+    .events__logistics {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .events__logistic:last-child {
+      grid-column: span 2;
+    }
+  }
+
+  .events__cta {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--paper);
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--brick);
+    transition: border-color 250ms var(--ease-out-quart);
+    width: fit-content;
+  }
+
+  @media (hover: hover) {
+    .events__cta:hover {
+      border-color: var(--brick-light);
+    }
+  }
+
+  .events__cta:active {
+    opacity: 0.7;
+  }
+
+  .events__cta:focus-visible {
+    outline: 2px solid var(--paper);
+    outline-offset: 4px;
+    border-radius: 1px;
+  }
+
+  .events__cta-note {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--paper-dim);
+    line-height: 1.5;
+    margin-top: -0.75rem;
+  }
+
+  .events__cta-note a {
+    color: var(--paper-faint);
+    transition: color 200ms var(--ease-out-quart);
+  }
+
+  @media (hover: hover) {
+    .events__cta-note a:hover {
+      color: var(--paper);
+    }
+  }
+
+  /* Event social proof quote */
+  .events__proof {
+    border-top: 1px solid var(--ink-border);
+    padding-top: 1.5rem;
+    margin-top: -0.25rem;
+  }
+
+  .events__proof-quote {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--paper-dim);
+    font-style: normal;
+    margin-bottom: 0.875rem;
+  }
+
+  .events__proof-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  /* ── Contact section ── */
   .contact {
     background-color: var(--ink);
     padding: 8rem 2.5rem 10rem;
@@ -129,23 +360,7 @@ const reviews = [
     gap: 0;
   }
 
-  .contact__label {
-    font-family: var(--font-body);
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    color: var(--brick-light);
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-  }
-
-  /* Section separators */
-  .events {
-    border-top: 1px solid var(--ink-border);
-    padding-top: 6rem;
-    margin-top: 6rem;
-  }
-
+  /* Reviews */
   .reviews {
     border-top: 1px solid var(--ink-border);
     padding-top: 6rem;
@@ -259,100 +474,11 @@ const reviews = [
 
   .review__via {
     font-family: var(--font-body);
-    font-size: 0.6875rem;
+    font-size: 0.875rem;
     font-weight: 400;
     letter-spacing: 0.08em;
-    color: var(--ink-muted);
+    color: var(--paper-dim);
     text-transform: uppercase;
-  }
-
-  /* Events */
-  .events__body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-    border-top: 1px solid var(--ink-border);
-    padding-top: 2.5rem;
-  }
-
-  .events__headline {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 7vw, 5.25rem);
-    font-weight: 900;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    color: var(--paper);
-  }
-
-  .events__accent {
-    color: var(--brick-light);
-  }
-
-  .events__right {
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem;
-  }
-
-  .events__text {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.7;
-    color: var(--paper-muted-dark);
-    max-width: 46ch;
-  }
-
-  .events__types {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    border-top: 1px solid var(--ink-border);
-  }
-
-  .events__types li {
-    font-family: var(--font-body);
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    padding: 0.875rem 0;
-    border-bottom: 1px solid var(--ink-border);
-  }
-
-  .events__cta {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    font-family: var(--font-body);
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--paper);
-    padding-bottom: 0.25rem;
-    border-bottom: 1px solid var(--brick);
-    transition: border-color 250ms var(--ease-out-quart);
-    width: fit-content;
-  }
-
-  @media (hover: hover) {
-    .events__cta:hover {
-      border-color: var(--brick-light);
-    }
-  }
-
-  .events__cta:active {
-    opacity: 0.7;
-  }
-
-  .events__cta:focus-visible {
-    outline: 2px solid var(--paper);
-    outline-offset: 4px;
-    border-radius: 1px;
   }
 
   /* Contact details */
@@ -412,7 +538,28 @@ const reviews = [
     border-radius: 1px;
   }
 
+  /* ── Responsive ── */
+  @media (max-width: 860px) {
+    .events__body {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+
   @media (max-width: 640px) {
+    .events-section {
+      padding: 5rem 1.25rem;
+    }
+
+    .contact {
+      padding: 5rem 1.25rem 7rem;
+    }
+
+    .reviews {
+      padding-top: 4rem;
+      margin-top: 4rem;
+    }
+
     .review--featured {
       padding: 2rem 0;
       max-width: none;
@@ -434,25 +581,6 @@ const reviews = [
     .review--secondary--full {
       grid-column: span 1;
     }
-  }
-
-  @media (max-width: 860px) {
-    .events__body {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .contact {
-      padding: 5rem 1.25rem 7rem;
-    }
-
-    .events,
-    .reviews {
-      padding-top: 4rem;
-      margin-top: 4rem;
-    }
 
     .contact__details {
       grid-template-columns: 1fr;
@@ -468,8 +596,8 @@ const reviews = [
     }
   }
 
+  /* ── Scroll-driven animations ── */
   @supports (animation-timeline: scroll()) {
-    /* Contact details grid slides in from left */
     .contact__info {
       will-change: transform, opacity;
       animation: contact-info-in linear both;
@@ -482,7 +610,6 @@ const reviews = [
       to   { opacity: 1; transform: none; }
     }
 
-    /* Events headline rises with weight */
     .events__headline {
       will-change: transform, opacity;
       animation: events-rise linear both;
@@ -495,8 +622,8 @@ const reviews = [
       to   { opacity: 1; transform: none; }
     }
 
-    /* Events body content follows */
     .events__right {
+      will-change: transform, opacity;
       animation: events-right-in linear both;
       animation-timeline: view();
       animation-range: entry 15% entry 55%;
@@ -507,7 +634,6 @@ const reviews = [
       to   { opacity: 1; transform: none; }
     }
 
-    /* Featured review scales in from slightly smaller */
     .review--featured {
       will-change: transform, opacity;
       animation: review-emerge linear both;
@@ -520,7 +646,6 @@ const reviews = [
       to   { opacity: 1; transform: none; }
     }
 
-    /* Secondary reviews stagger in */
     .reviews__secondary {
       animation: reviews-secondary-in linear both;
       animation-timeline: view();

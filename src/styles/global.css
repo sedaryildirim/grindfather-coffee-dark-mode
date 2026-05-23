@@ -62,6 +62,7 @@
   /* Semantic */
   --status-open: oklch(42% 0.14 142);
   --brick-hover: oklch(78% 0.20 25);
+  --brick-word: var(--brick-deep); /* editorial accent words only (ONE, TWO, BAR) — not interactive */
 }
 
 *, *::before, *::after {
