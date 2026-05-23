@@ -177,7 +177,7 @@
     }
 
     .nav__wordmark:hover {
-      color: oklch(96% 0.006 85 / 0.7);
+      color: color-mix(in oklch, var(--paper) 70%, transparent);
       letter-spacing: 0.12em;
     }
   }
@@ -332,7 +332,7 @@
 
   @media (hover: hover) {
     .nav__drawer-links a:hover {
-      color: oklch(96% 0.006 85 / 0.5);
+      color: color-mix(in oklch, var(--paper) 50%, transparent);
     }
   }
 

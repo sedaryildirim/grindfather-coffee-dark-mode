@@ -69,7 +69,7 @@ const reviews = [
         <div class="events__right">
           <p class="events__text">
             Private events, weddings, pop-ups. From a 30-person corporate breakfast to a 300-guest
-            wedding — wherever you need great coffee, we'll set up.
+            wedding. Wherever you need great coffee, we'll set up.
           </p>
           <ul class="events__types" role="list">
             <li>Private Events</li>
@@ -461,6 +461,7 @@ const reviews = [
   @supports (animation-timeline: scroll()) {
     /* Contact details grid slides in from left */
     .contact__info {
+      will-change: transform, opacity;
       animation: contact-info-in linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 50%;
@@ -473,6 +474,7 @@ const reviews = [
 
     /* Events headline rises with weight */
     .events__headline {
+      will-change: transform, opacity;
       animation: events-rise linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 45%;
@@ -497,6 +499,7 @@ const reviews = [
 
     /* Featured review scales in from slightly smaller */
     .review--featured {
+      will-change: transform, opacity;
       animation: review-emerge linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 50%;

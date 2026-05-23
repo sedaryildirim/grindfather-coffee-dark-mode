@@ -199,7 +199,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    border-top: 1px solid oklch(10% 0.008 155 / 0.12);
+    border-top: 1px solid color-mix(in oklch, var(--ink-body) 12%, transparent);
     padding-top: 3rem;
   }
 
@@ -264,7 +264,7 @@
   }
 
   .hours-table tr {
-    border-bottom: 1px solid oklch(10% 0.008 155 / 0.1);
+    border-bottom: 1px solid color-mix(in oklch, var(--ink-body) 10%, transparent);
   }
 
   .hours-table th,
@@ -366,6 +366,7 @@
   /* Headline enters from left, summary text from right */
   @supports (animation-timeline: scroll()) {
     .location__headline {
+      will-change: transform, opacity;
       animation: loc-headline-in linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 50%;
@@ -377,6 +378,7 @@
     }
 
     .location__summary-text {
+      will-change: transform, opacity;
       animation: loc-text-in linear both;
       animation-timeline: view();
       animation-range: entry 10% entry 55%;
@@ -401,7 +403,7 @@
       left: 0;
       right: 0;
       height: 1px;
-      background-color: oklch(10% 0.008 155 / 0.12);
+      background-color: color-mix(in oklch, var(--ink-body) 12%, transparent);
       animation: border-stamp linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 35%;
@@ -414,12 +416,14 @@
 
     /* Location cards slide up staggered */
     .location__card:nth-child(1) {
+      will-change: transform, opacity;
       animation: loc-card-in linear both;
       animation-timeline: view();
       animation-range: entry 5% entry 50%;
     }
 
     .location__card:nth-child(2) {
+      will-change: transform, opacity;
       animation: loc-card-in linear both;
       animation-timeline: view();
       animation-range: entry 15% entry 60%;

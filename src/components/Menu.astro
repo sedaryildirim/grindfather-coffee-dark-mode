@@ -1,6 +1,6 @@
 ---
 const coffee = [
-  { name: 'ESPRESSO',    price: '2.50', desc: 'A single shot, neat. Single-origin, rotated regularly — ask what\'s on today.' },
+  { name: 'ESPRESSO',    price: '2.50', desc: 'A single shot, neat. Single-origin, rotated regularly; ask what\'s on today.' },
   { name: 'MACCHIATO',   price: '3.30', desc: 'Espresso marked with a small spoon of foamed milk.' },
   { name: 'CORTADO',     price: '3.30', desc: 'Equal parts espresso and warm milk. No foam.' },
   { name: 'AMERICANO',   price: '3.50', desc: 'A double shot lengthened with hot water. Long and clean.' },
@@ -133,7 +133,7 @@ const hotDrinks = [
     </div>
 
   </div>
-  <p class="menu__allergen">May contain milk, nuts, gluten, and soya — please ask before ordering.</p>
+  <p class="menu__allergen">May contain milk, nuts, gluten, and soya. Please ask before ordering.</p>
 </section>
 
 <style>
@@ -303,7 +303,7 @@ const hotDrinks = [
     grid-template-columns: 14rem 1fr;
     gap: 1.5rem;
     padding: 1rem 0;
-    border-bottom: 1px solid oklch(18% 0.008 155 / 0.5);
+    border-bottom: 1px solid color-mix(in oklch, var(--ink-border) 50%, transparent);
     align-items: start;
   }
 
@@ -402,6 +402,7 @@ const hotDrinks = [
     }
 
     .menu__item {
+      will-change: transform, opacity;
       animation: item-slide-in linear both;
       animation-timeline: view();
       /* Each item starts animating at a slightly later entry point based on its index */
@@ -417,6 +418,7 @@ const hotDrinks = [
 
     /* Shakes builder gets its own entry */
     .shakes__builder {
+      will-change: transform, opacity;
       animation: item-slide-in linear both;
       animation-timeline: view();
       animation-range: entry 5% entry 40%;
