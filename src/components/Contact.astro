@@ -38,7 +38,7 @@ const reviews = [
 
     <!-- Contact info -->
     <div class="contact__info" data-reveal>
-      <p class="contact__label">GET IN TOUCH</p>
+      <h2 class="contact__label">GET IN TOUCH</h2>
       <dl class="contact__details">
         <div class="contact__detail">
           <dt>EMAIL</dt>
@@ -224,7 +224,7 @@ const reviews = [
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.65;
-    color: oklch(70% 0.006 85);
+    color: var(--paper-dim);
     font-style: normal;
     margin-bottom: 1rem;
     max-width: 46ch;
@@ -292,7 +292,7 @@ const reviews = [
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.7;
-    color: oklch(65% 0.006 85);
+    color: var(--paper-muted-dark);
     max-width: 46ch;
   }
 
@@ -394,7 +394,7 @@ const reviews = [
 
   @media (hover: hover) {
     .contact__detail dd a:hover {
-      color: oklch(80% 0.006 85);
+      color: var(--paper-dim-hover);
     }
   }
 

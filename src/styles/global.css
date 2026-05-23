@@ -13,6 +13,23 @@
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* Extended ink scale — dark text on light sections */
+  --ink-body: oklch(18% 0.008 155);
+  --ink-address: oklch(22% 0.008 155);
+  --ink-soft: oklch(28% 0.008 155);
+  --ink-subtle: oklch(38% 0.008 155);
+  --ink-dim: oklch(64% 0.008 155);
+
+  /* Extended paper scale — text on dark sections */
+  --paper-faint: oklch(58% 0.006 85);
+  --paper-muted-dark: oklch(65% 0.006 85);
+  --paper-dim: oklch(70% 0.006 85);
+  --paper-dim-hover: oklch(80% 0.006 85);
+
+  /* Semantic */
+  --status-open: oklch(42% 0.14 142);
+  --brick-hover: oklch(78% 0.20 25);
 }
 
 *, *::before, *::after {
