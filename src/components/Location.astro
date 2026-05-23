@@ -18,6 +18,7 @@
           <p class="location__venue-label">MON–FRI</p>
           <h3 class="location__venue-name">GYMVISION</h3>
         </div>
+        <p class="location__status" aria-live="polite" id="gymvision-status">Check hours below</p>
         <address class="location__address">
           Avenue Industrial Park<br />
           Croescadarn Close, Pentwyn<br />
@@ -59,7 +60,6 @@
             <path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <p class="location__status" aria-live="polite" id="gymvision-status">Check hours above</p>
       </div>
 
       <!-- Riverside Market -->
@@ -68,6 +68,7 @@
           <p class="location__venue-label">SUNDAY</p>
           <h3 class="location__venue-name">RIVERSIDE MARKET</h3>
         </div>
+        <p class="location__status" aria-live="polite" id="riverside-status">Check hours below</p>
         <address class="location__address">
           Fitzhamon Embankment<br />
           Cardiff CF11 6AN<br />
@@ -105,7 +106,6 @@
             <path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <p class="location__status" aria-live="polite" id="riverside-status">Check hours above</p>
       </div>
 
     </div>
@@ -328,12 +328,11 @@
 
   .location__status {
     font-family: var(--font-body);
-    font-size: 0.6875rem;
+    font-size: 0.8125rem;
     font-weight: 500;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--paper-muted);
-    margin-top: -0.75rem;
   }
 
   .location__status[data-open="true"] {

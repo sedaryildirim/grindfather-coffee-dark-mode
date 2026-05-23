@@ -34,6 +34,7 @@ const hotDrinks = [
 ---
 
 <section class="menu" id="menu" aria-labelledby="menu-title">
+  <p class="menu__allergen">Contains or may contain milk, nuts, gluten, and soya. Please ask before ordering.</p>
   <div class="menu__inner">
     <h2 id="menu-title" class="sr-only">Menu</h2>
 
@@ -133,7 +134,6 @@ const hotDrinks = [
     </div>
 
   </div>
-  <p class="menu__allergen">May contain milk, nuts, gluten, and soya. Please ask before ordering.</p>
 </section>
 
 <style>
@@ -351,14 +351,20 @@ const hotDrinks = [
   .menu__allergen {
     max-width: 56rem;
     margin-inline: auto;
-    margin-top: 3rem;
+    padding: 1rem 2.5rem;
     font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 400;
+    font-size: 0.8125rem;
+    font-weight: 500;
     letter-spacing: 0.04em;
-    color: var(--ink-muted);
-    border-top: 1px solid var(--ink-border);
-    padding-top: 1.25rem;
+    color: var(--brick-light);
+    border-bottom: 1px solid var(--ink-border);
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 640px) {
+    .menu__allergen {
+      padding-inline: 1.25rem;
+    }
   }
 
   @media (max-width: 640px) {

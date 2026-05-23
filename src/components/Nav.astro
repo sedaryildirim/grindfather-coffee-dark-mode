@@ -26,6 +26,10 @@
 </header>
 
 <div class="nav__drawer" id="nav-drawer" aria-hidden="true">
+  <button class="nav__drawer-close" aria-label="Close navigation">
+    <span class="nav__toggle-bar"></span>
+    <span class="nav__toggle-bar"></span>
+  </button>
   <nav aria-label="Mobile navigation">
     <ul class="nav__drawer-links" role="list">
       <li><a href="#about">ABOUT</a></li>
@@ -39,6 +43,7 @@
 <script>
   const toggle = document.querySelector('.nav__toggle') as HTMLButtonElement | null;
   const drawer = document.getElementById('nav-drawer');
+  const drawerClose = drawer?.querySelector('.nav__drawer-close') as HTMLButtonElement | null;
   const drawerLinks = drawer?.querySelectorAll('a');
 
   let releaseFocusTrap: (() => void) | null = null;
@@ -90,6 +95,7 @@
     drawer?.classList.contains('nav__drawer--open') ? closeDrawer() : openDrawer();
   });
 
+  drawerClose?.addEventListener('click', closeDrawer);
   drawerLinks?.forEach(link => link.addEventListener('click', closeDrawer));
 
   document.addEventListener('keydown', (e) => {
@@ -280,6 +286,38 @@
   }
   .nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(3) {
     transform: translateY(-6.5px) rotate(-45deg);
+  }
+
+  /* Drawer close button */
+  .nav__drawer-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 102;
+  }
+
+  .nav__drawer-close .nav__toggle-bar:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+
+  .nav__drawer-close .nav__toggle-bar:nth-child(2) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+
+  .nav__drawer-close:focus-visible {
+    outline: 2px solid var(--paper);
+    outline-offset: 4px;
+    border-radius: 1px;
   }
 
   /* Drawer */
