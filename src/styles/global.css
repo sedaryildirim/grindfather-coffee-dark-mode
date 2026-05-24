@@ -47,7 +47,6 @@
 
   /* Extended ink scale — dark text on light sections */
   --ink-body: oklch(18% 0.008 155);
-  --ink-address: oklch(22% 0.008 155);
   --ink-soft: oklch(28% 0.008 155);
   --ink-subtle: oklch(38% 0.008 155);
   --ink-dim: oklch(64% 0.008 155);
@@ -56,10 +55,8 @@
   --paper-faint: oklch(58% 0.006 85);
   --paper-muted-dark: oklch(65% 0.006 85);
   --paper-dim: oklch(70% 0.006 85);
-  --paper-dim-hover: oklch(80% 0.006 85);
 
   /* Semantic */
-  --status-open: oklch(42% 0.14 142);
   --brick-hover: oklch(78% 0.20 25);
   --brick-word: var(--brick-deep); /* editorial accent words only (ONE, TWO, BAR) — not interactive */
 }
@@ -98,6 +95,19 @@ img {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--paper);
+  outline-offset: 4px;
+  border-radius: 1px;
+}
+
+[data-bg="light"] a:focus-visible,
+[data-bg="light"] button:focus-visible {
+  outline-color: var(--ink);
 }
 
 /* Scroll reveal */

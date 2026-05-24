@@ -152,7 +152,6 @@ const eventReview = {
 <style>
   /* ── Shared label ── */
   .contact__label {
-    font-family: var(--font-body);
     font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -202,7 +201,6 @@ const eventReview = {
   }
 
   .events__text {
-    font-family: var(--font-body);
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.7;
@@ -219,7 +217,6 @@ const eventReview = {
   }
 
   .events__types li {
-    font-family: var(--font-body);
     font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.12em;
@@ -246,7 +243,6 @@ const eventReview = {
   }
 
   .events__logistic dt {
-    font-family: var(--font-body);
     font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.12em;
@@ -255,7 +251,6 @@ const eventReview = {
   }
 
   .events__logistic dd {
-    font-family: var(--font-body);
     font-size: 0.875rem;
     font-weight: 400;
     color: var(--paper-dim);
@@ -276,7 +271,6 @@ const eventReview = {
     display: inline-flex;
     align-items: center;
     min-height: 44px;
-    font-family: var(--font-body);
     font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.12em;
@@ -299,14 +293,7 @@ const eventReview = {
     opacity: 0.7;
   }
 
-  .events__cta:focus-visible {
-    outline: 2px solid var(--paper);
-    outline-offset: 4px;
-    border-radius: 1px;
-  }
-
   .events__cta-note {
-    font-family: var(--font-body);
     font-size: 0.8125rem;
     font-weight: 400;
     color: var(--paper-dim);
@@ -325,12 +312,6 @@ const eventReview = {
     }
   }
 
-  .events__cta-note a:focus-visible {
-    outline: 2px solid var(--paper);
-    outline-offset: 3px;
-    border-radius: 1px;
-  }
-
   /* Event social proof quote */
   .events__proof {
     border-top: 1px solid var(--ink-border);
@@ -339,7 +320,6 @@ const eventReview = {
   }
 
   .events__proof-quote {
-    font-family: var(--font-body);
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.65;
@@ -376,7 +356,6 @@ const eventReview = {
   }
 
   .reviews__rating {
-    font-family: var(--font-body);
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--brick-light);
@@ -404,7 +383,6 @@ const eventReview = {
   }
 
   .review--featured__quote {
-    font-family: var(--font-body);
     font-size: clamp(1.5rem, 3vw, 2.25rem);
     font-weight: 400;
     line-height: 1.45;
@@ -451,7 +429,6 @@ const eventReview = {
   }
 
   .review__quote {
-    font-family: var(--font-body);
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.65;
@@ -476,7 +453,6 @@ const eventReview = {
   }
 
   .review__name {
-    font-family: var(--font-body);
     font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -485,7 +461,6 @@ const eventReview = {
   }
 
   .review__via {
-    font-family: var(--font-body);
     font-size: 0.6875rem;
     font-weight: 400;
     letter-spacing: 0.1em;
@@ -519,7 +494,6 @@ const eventReview = {
   }
 
   .contact__detail dt {
-    font-family: var(--font-body);
     font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.12em;
@@ -528,7 +502,6 @@ const eventReview = {
   }
 
   .contact__detail dd {
-    font-family: var(--font-body);
     font-size: 0.9375rem;
     font-weight: 400;
     color: var(--paper);
@@ -541,14 +514,8 @@ const eventReview = {
 
   @media (hover: hover) {
     .contact__detail dd a:hover {
-      color: var(--paper-dim-hover);
+      color: oklch(80% 0.006 85);
     }
-  }
-
-  .contact__detail dd a:focus-visible {
-    outline: 2px solid var(--paper);
-    outline-offset: 3px;
-    border-radius: 1px;
   }
 
   /* ── Responsive ── */
@@ -613,7 +580,6 @@ const eventReview = {
   /* ── Scroll-driven animations ── */
   @supports (animation-timeline: scroll()) {
     .contact__info {
-      will-change: transform, opacity;
       animation: contact-info-in linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 50%;
@@ -625,7 +591,6 @@ const eventReview = {
     }
 
     .events__headline {
-      will-change: transform, opacity;
       animation: events-rise linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 45%;
@@ -637,7 +602,6 @@ const eventReview = {
     }
 
     .events__right {
-      will-change: transform, opacity;
       animation: events-right-in linear both;
       animation-timeline: view();
       animation-range: entry 15% entry 55%;
@@ -649,7 +613,6 @@ const eventReview = {
     }
 
     .review--featured {
-      will-change: transform, opacity;
       animation: review-emerge linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 50%;

@@ -190,7 +190,6 @@
   }
 
   .location__summary-text {
-    font-family: var(--font-body);
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.7;
@@ -219,7 +218,6 @@
   }
 
   .location__venue-label {
-    font-family: var(--font-body);
     font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -237,16 +235,14 @@
   }
 
   .location__address {
-    font-family: var(--font-body);
     font-size: 0.9375rem;
     font-weight: 400;
     line-height: 1.65;
-    color: var(--ink-address);
+    color: oklch(22% 0.008 155);
     font-style: normal;
   }
 
   .location__area-hint {
-    font-family: var(--font-body);
     font-size: 0.75rem;
     font-weight: 400;
     line-height: 1.5;
@@ -258,7 +254,6 @@
     display: inline-flex;
     align-items: center;
     min-height: 44px;
-    font-family: var(--font-body);
     font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.04em;
@@ -274,12 +269,6 @@
     }
   }
 
-  .location__site-link:focus-visible {
-    outline: 2px solid var(--ink);
-    outline-offset: 4px;
-    border-radius: 1px;
-  }
-
   .hours-table {
     border-collapse: collapse;
     width: 100%;
@@ -293,7 +282,6 @@
   .hours-table td {
     padding: 0.875rem 0;
     text-align: left;
-    font-family: var(--font-body);
     font-weight: 400;
     font-size: 1rem;
     color: var(--ink-body);
@@ -320,7 +308,6 @@
     align-items: center;
     gap: 0.5rem;
     min-height: 44px;
-    font-family: var(--font-body);
     font-size: 0.8125rem;
     font-weight: 500;
     letter-spacing: 0.12em;
@@ -343,14 +330,7 @@
     opacity: 0.7;
   }
 
-  .location__map-link:focus-visible {
-    outline: 2px solid var(--ink);
-    outline-offset: 4px;
-    border-radius: 1px;
-  }
-
   .location__status {
-    font-family: var(--font-body);
     font-size: 0.8125rem;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -359,7 +339,7 @@
   }
 
   .location__status[data-open="true"] {
-    color: var(--status-open);
+    color: oklch(42% 0.14 142);
   }
 
   .location__status[data-open="false"] {
@@ -392,7 +372,6 @@
   /* Headline enters from left, summary text from right */
   @supports (animation-timeline: scroll()) {
     .location__headline {
-      will-change: transform, opacity;
       animation: loc-headline-in linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 50%;
@@ -404,7 +383,6 @@
     }
 
     .location__summary-text {
-      will-change: transform, opacity;
       animation: loc-text-in linear both;
       animation-timeline: view();
       animation-range: entry 10% entry 55%;
@@ -442,14 +420,12 @@
 
     /* Location cards slide up staggered */
     .location__card:nth-child(1) {
-      will-change: transform, opacity;
       animation: loc-card-in linear both;
       animation-timeline: view();
       animation-range: entry 5% entry 50%;
     }
 
     .location__card:nth-child(2) {
-      will-change: transform, opacity;
       animation: loc-card-in linear both;
       animation-timeline: view();
       animation-range: entry 15% entry 60%;

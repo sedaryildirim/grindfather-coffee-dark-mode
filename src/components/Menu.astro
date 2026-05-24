@@ -182,7 +182,6 @@ const hotDrinks = [
     margin-bottom: 3rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--ink-border);
-    font-family: var(--font-body);
     font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -203,18 +202,11 @@ const hotDrinks = [
     }
   }
 
-  .menu__jumpnav a:focus-visible {
-    outline: 2px solid var(--paper);
-    outline-offset: 4px;
-    border-radius: 1px;
-  }
-
   .menu__group[id] {
     scroll-margin-top: 5.5rem;
   }
 
   .menu__category {
-    font-family: var(--font-body);
     font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.18em;
@@ -280,7 +272,6 @@ const hotDrinks = [
   }
 
   .menu__item-desc {
-    font-family: var(--font-body);
     font-size: 0.8125rem;
     font-weight: 400;
     color: var(--ink-muted);
@@ -295,7 +286,6 @@ const hotDrinks = [
   }
 
   .menu__tag {
-    font-family: var(--font-body);
     font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -308,12 +298,7 @@ const hotDrinks = [
     line-height: 1.6;
   }
 
-  .menu__allergen-key {
-    opacity: 0.75;
-  }
-
   .menu__item-varieties {
-    font-family: var(--font-body);
     font-size: 0.75rem;
     font-weight: 400;
     color: var(--ink-muted);
@@ -322,7 +307,6 @@ const hotDrinks = [
   }
 
   .menu__item-price {
-    font-family: var(--font-body);
     font-size: 0.875rem;
     font-weight: 500;
     letter-spacing: 0.06em;
@@ -364,7 +348,6 @@ const hotDrinks = [
   }
 
   .shakes__base-price {
-    font-family: var(--font-body);
     font-size: 0.875rem;
     font-weight: 500;
     letter-spacing: 0.06em;
@@ -391,7 +374,6 @@ const hotDrinks = [
   }
 
   .shakes__tier dt {
-    font-family: var(--font-body);
     font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -403,7 +385,6 @@ const hotDrinks = [
   }
 
   .shakes__tier-price {
-    font-family: var(--font-body);
     font-size: 0.6875rem;
     font-weight: 400;
     letter-spacing: 0.04em;
@@ -420,7 +401,6 @@ const hotDrinks = [
   }
 
   .shakes__tier dd {
-    font-family: var(--font-body);
     font-size: 0.875rem;
     font-weight: 400;
     color: var(--ink-dim);
@@ -431,16 +411,11 @@ const hotDrinks = [
     margin-top: 3rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--ink-border);
-    font-family: var(--font-body);
     font-size: 0.6875rem;
     font-weight: 400;
     letter-spacing: 0.06em;
     color: var(--ink-muted);
     line-height: 1.6;
-  }
-
-  .menu__allergen-key {
-    opacity: 0.75;
   }
 
   @media (max-width: 640px) {
@@ -507,7 +482,6 @@ const hotDrinks = [
 
     /* Shakes builder gets its own entry */
     .shakes__builder {
-      will-change: transform, opacity;
       animation: item-slide-in linear both;
       animation-timeline: view();
       animation-range: entry 5% entry 40%;
