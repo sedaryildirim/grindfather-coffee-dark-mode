@@ -146,20 +146,6 @@ const eventReview = {
       </ul>
     </div>
 
-    <div class="contact__close" data-reveal data-delay="2">
-      <p class="contact__close-line">GRINDFATHER.</p>
-      <div class="contact__close-right">
-        <p class="contact__close-meta">Cardiff · Since 2015</p>
-        <a
-          href="https://instagram.com/the_grindfather_coffee"
-          class="contact__close-cta"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Follow Grindfather on Instagram (opens in new tab)"
-        >Follow on Instagram ↗</a>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -507,71 +493,6 @@ const eventReview = {
     text-transform: uppercase;
   }
 
-  /* Closing strip */
-  .contact__close {
-    border-top: 1px solid var(--ink-border);
-    padding-top: 4rem;
-    margin-top: 5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-
-  .contact__close-line {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 7vw, 6rem);
-    font-weight: 900;
-    line-height: 0.9;
-    letter-spacing: -0.01em;
-    color: var(--paper);
-  }
-
-  .contact__close-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.625rem;
-  }
-
-  .contact__close-meta {
-    font-family: var(--font-body);
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    text-align: right;
-    padding-bottom: 0.25rem;
-  }
-
-  .contact__close-cta {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    font-family: var(--font-body);
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    border-bottom: 1px solid color-mix(in oklch, var(--ink-muted) 30%, transparent);
-    padding-bottom: 0.125rem;
-    transition: color 200ms var(--ease-out-quart), border-color 200ms var(--ease-out-quart);
-  }
-
-  @media (hover: hover) {
-    .contact__close-cta:hover {
-      color: var(--paper-dim);
-      border-color: color-mix(in oklch, var(--paper-dim) 40%, transparent);
-    }
-  }
-
-  .contact__close-cta:focus-visible {
-    outline: 2px solid var(--paper);
-    outline-offset: 4px;
-    border-radius: 1px;
-  }
-
   /* Contact details */
   .contact__details {
     display: grid;
@@ -687,19 +608,6 @@ const eventReview = {
       padding-left: 0;
     }
 
-    .contact__close {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-
-    .contact__close-right {
-      align-items: flex-start;
-    }
-
-    .contact__close-meta {
-      text-align: left;
-    }
   }
 
   /* ── Scroll-driven animations ── */
