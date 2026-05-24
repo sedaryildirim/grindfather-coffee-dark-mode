@@ -48,3 +48,8 @@
 | 23:38 | Fixed cta-note colour (ink-dim→paper-faint), review__via (paper-faint→paper-dim), added events logistics grid | Contact.astro | Done |
 | 23:43 | designqc: captured 6 screenshots (265KB, ~15000 tok) | / | ready for eval | ~0 |
 | 23:47 | designqc: captured 6 screenshots (265KB, ~15000 tok) | / | ready for eval | ~0 |
+| 09:53 | designqc: captured 6 screenshots (322KB, ~15000 tok) | / | ready for eval | ~0 |
+| 09:53 | designqc: captured 6 screenshots (265KB, ~15000 tok) | / | ready for eval | ~0 |
+| 10:01 | designqc: captured 6 screenshots (256KB, ~15000 tok) | / | ready for eval | ~0 |
+| 10:11 | designqc: captured 6 screenshots (257KB, ~15000 tok) | / | ready for eval | ~0 |
+| 10:20 | Applied impeccable critique Run 2 fixes: dietary tags on menu, GymVision landmark text, Instagram fallback in events CTA, closing strip follow CTA | Menu.astro, Location.astro, Contact.astro | committed + pushed | ~600 |
