@@ -1,15 +1,15 @@
 ---
 const coffee = [
-  { name: 'ESPRESSO',    price: '2.50', desc: 'A single shot, neat. Single-origin, rotated regularly; ask what\'s on today.' },
-  { name: 'MACCHIATO',   price: '3.30', desc: 'Espresso marked with a small spoon of foamed milk.' },
-  { name: 'CORTADO',     price: '3.30', desc: 'Equal parts espresso and warm milk. No foam.' },
-  { name: 'AMERICANO',   price: '3.50', desc: 'A double shot lengthened with hot water. Long and clean.' },
-  { name: 'CAPPUCCINO',  price: '3.80', desc: 'Espresso, steamed milk, dry foam. The classic.' },
-  { name: 'FLAT WHITE',  price: '3.80', desc: 'Double ristretto, velvet microfoam. Stronger than a latte.' },
-  { name: 'LATTE',       price: '3.80', desc: 'Double shot, steamed milk, a whisper of foam.' },
-  { name: 'MOCHA',       price: '4.00', desc: 'Espresso, dark chocolate, steamed milk. Indulgent.' },
-  { name: 'FRAPPE',      price: '3.50', desc: 'Iced and blended. Shaken till frothy.' },
-  { name: 'ICED COFFEE', price: '4.00', desc: 'Double shot over ice and cold milk. Simple.' },
+  { name: 'ESPRESSO',    price: '2.50', tags: ['V'], desc: 'A single shot, neat. Single-origin, rotated regularly; ask what\'s on today.' },
+  { name: 'MACCHIATO',   price: '3.30', tags: ['D'], desc: 'Espresso marked with a small spoon of foamed milk.' },
+  { name: 'CORTADO',     price: '3.30', tags: ['D'], desc: 'Equal parts espresso and warm milk. No foam.' },
+  { name: 'AMERICANO',   price: '3.50', tags: ['V'], desc: 'A double shot lengthened with hot water. Long and clean.' },
+  { name: 'CAPPUCCINO',  price: '3.80', tags: ['D'], desc: 'Espresso, steamed milk, dry foam. The classic.' },
+  { name: 'FLAT WHITE',  price: '3.80', tags: ['D'], desc: 'Double ristretto, velvet microfoam. Stronger than a latte.' },
+  { name: 'LATTE',       price: '3.80', tags: ['D'], desc: 'Double shot, steamed milk, a whisper of foam.' },
+  { name: 'MOCHA',       price: '4.00', tags: ['D'], desc: 'Espresso, dark chocolate, steamed milk. Indulgent.' },
+  { name: 'FRAPPE',      price: '3.50', tags: ['D'], desc: 'Iced and blended. Shaken till frothy.' },
+  { name: 'ICED COFFEE', price: '4.00', tags: ['D'], desc: 'Double shot over ice and cold milk. Simple.' },
 ];
 
 const hotTeas = [
@@ -27,14 +27,14 @@ const icedTeas = [
 ];
 
 const hotDrinks = [
-  { name: 'CHAI LATTE',    price: '3.50', desc: 'Spiced black tea, steamed milk, honey on request.' },
-  { name: 'HOT CHOCOLATE', price: '3.80', desc: '70% Valrhona, whole milk, sea-salt flake on top.' },
-  { name: 'MATCHA LATTE',  price: '4.00', desc: 'Ceremonial-grade matcha, whisked, steamed milk. (Or Turmeric)' },
+  { name: 'CHAI LATTE',    price: '3.50', tags: ['D'], desc: 'Spiced black tea, steamed milk, honey on request.' },
+  { name: 'HOT CHOCOLATE', price: '3.80', tags: ['D'], desc: '70% Valrhona, whole milk, sea-salt flake on top.' },
+  { name: 'MATCHA LATTE',  price: '4.00', tags: ['D'], desc: 'Ceremonial-grade matcha, whisked, steamed milk. (Or Turmeric)' },
 ];
 ---
 
 <section class="menu" id="menu" aria-labelledby="menu-title">
-  <p class="menu__allergen">Contains or may contain milk, nuts, gluten, and soya. For specific item allergen details, please ask before ordering.</p>
+  <p class="menu__allergen">Contains or may contain milk, nuts, gluten, and soya. <span class="menu__allergen-key">D = dairy · V = dairy-free</span>. For specific allergen details, please ask.</p>
   <div class="menu__inner">
     <h2 id="menu-title" class="sr-only">Menu</h2>
 
@@ -47,6 +47,7 @@ const hotDrinks = [
           <li class="menu__item menu__item--desc" style={`--i: ${i}`}>
             <div class="menu__item-left">
               <span class="menu__item-name">{item.name}</span>
+              {item.tags && <span class="menu__item-tags" aria-label="dietary info">{item.tags.map(tag => <abbr class="menu__tag" title={tag === 'D' ? 'Contains dairy' : 'Vegan / dairy-free'}>{tag}</abbr>)}</span>}
               <span class="menu__item-desc">{item.desc}</span>
             </div>
             <span class="menu__item-price" aria-label={`£${item.price}`}>£{item.price}</span>
@@ -88,6 +89,7 @@ const hotDrinks = [
           <li class="menu__item menu__item--desc" style={`--i: ${i}`}>
             <div class="menu__item-left">
               <span class="menu__item-name">{item.name}</span>
+              {item.tags && <span class="menu__item-tags" aria-label="dietary info">{item.tags.map(tag => <abbr class="menu__tag" title={tag === 'D' ? 'Contains dairy' : 'Vegan / dairy-free'}>{tag}</abbr>)}</span>}
               <span class="menu__item-desc">{item.desc}</span>
             </div>
             <span class="menu__item-price" aria-label={`£${item.price}`}>£{item.price}</span>
@@ -236,6 +238,29 @@ const hotDrinks = [
     color: var(--ink-muted);
     line-height: 1.6;
     max-width: 52ch;
+  }
+
+  .menu__item-tags {
+    display: flex;
+    gap: 0.25rem;
+    margin-top: -0.125rem;
+  }
+
+  .menu__tag {
+    font-family: var(--font-body);
+    font-size: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+    border: 1px solid color-mix(in oklch, var(--ink-muted) 35%, transparent);
+    padding: 0.0625rem 0.3125rem;
+    text-decoration: none;
+    cursor: help;
+    line-height: 1.6;
+  }
+
+  .menu__allergen-key {
+    opacity: 0.75;
   }
 
   .menu__item-varieties {
