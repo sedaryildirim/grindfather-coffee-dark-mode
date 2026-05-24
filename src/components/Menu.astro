@@ -34,7 +34,6 @@ const hotDrinks = [
 ---
 
 <section class="menu" id="menu" aria-labelledby="menu-title">
-  <p class="menu__allergen">Contains or may contain milk, nuts, gluten, and soya. <span class="menu__allergen-key">D = dairy · V = dairy-free</span>. For specific allergen details, please ask.</p>
   <div class="menu__inner">
     <h2 id="menu-title" class="sr-only">Menu</h2>
 
@@ -135,6 +134,7 @@ const hotDrinks = [
       </div>
     </div>
 
+    <p class="menu__footnote">D = dairy · V = dairy-free · May contain milk, nuts, gluten, soya. Ask staff for allergen details.</p>
   </div>
 </section>
 
@@ -378,28 +378,20 @@ const hotDrinks = [
     line-height: 1.5;
   }
 
-  .menu__allergen {
-    position: sticky;
-    top: 4rem;
-    z-index: 3;
-    max-width: 56rem;
-    margin-inline: auto;
-    padding: 1rem 2.5rem;
+  .menu__footnote {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--ink-border);
     font-family: var(--font-body);
-    font-size: 0.8125rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: var(--paper);
-    background-color: color-mix(in oklch, var(--brick) 12%, var(--ink));
-    border-top: 1px solid color-mix(in oklch, var(--brick) 30%, var(--ink-border));
-    border-bottom: 1px solid var(--ink-border);
-    margin-bottom: 0;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--ink-muted);
+    line-height: 1.6;
   }
 
-  @media (max-width: 640px) {
-    .menu__allergen {
-      padding-inline: 1.25rem;
-    }
+  .menu__allergen-key {
+    opacity: 0.75;
   }
 
   @media (max-width: 640px) {

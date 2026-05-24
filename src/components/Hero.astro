@@ -160,10 +160,10 @@
     font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--paper-faint);
+    color: var(--paper);
     cursor: pointer;
     padding-bottom: 0.25rem;
-    border-bottom: 1px solid color-mix(in oklch, var(--paper-faint) 35%, transparent);
+    border-bottom: 1px solid var(--brick);
     transition: color 250ms var(--ease-out-quart), border-color 250ms var(--ease-out-quart);
     animation: cta-in 500ms var(--ease-out-quart) 640ms both;
     min-height: 44px;
@@ -174,7 +174,7 @@
   @media (hover: hover) {
     .hero__cta-secondary:hover {
       color: var(--paper);
-      border-color: var(--paper-dim);
+      border-color: var(--brick-light);
     }
   }
 

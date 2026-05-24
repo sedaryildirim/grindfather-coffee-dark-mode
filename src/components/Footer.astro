@@ -1,49 +1,30 @@
 <footer class="footer" role="contentinfo">
-  <div class="footer__inner">
+  <div class="footer__bar">
     <a href="#" class="footer__wordmark" aria-label="GRINDFATHER Coffee Co. — return to top">GRINDFATHER</a>
 
-    <nav class="footer__social" aria-label="Social media links">
-      <a href="https://instagram.com/the_grindfather_coffee" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram (opens in new tab)">Instagram</a>
-      <span class="footer__sep" aria-hidden="true">/</span>
-      <a href="https://facebook.com/p/The-Grindfather-Coffee-61575198692256" target="_blank" rel="noopener noreferrer" aria-label="Follow on Facebook (opens in new tab)">Facebook</a>
-    </nav>
+    <div class="footer__right">
+      <nav class="footer__social" aria-label="Social media links">
+        <a href="https://instagram.com/the_grindfather_coffee" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram (opens in new tab)">Instagram</a>
+        <span class="footer__sep" aria-hidden="true">/</span>
+        <a href="https://facebook.com/p/The-Grindfather-Coffee-61575198692256" target="_blank" rel="noopener noreferrer" aria-label="Follow on Facebook (opens in new tab)">Facebook</a>
+      </nav>
 
-    <p class="footer__meta">
-      <span>GymVision, Pentwyn CF23 8HE</span>
-      <span class="footer__sep" aria-hidden="true">/</span>
-      <span>Riverside Market CF11 6AN</span>
-      <span class="footer__sep" aria-hidden="true">/</span>
-      <time datetime="2026">&copy; 2026 GRINDFATHER Coffee Co.</time>
-    </p>
+      <p class="footer__meta">
+        <span>Cardiff · Since 2015</span>
+        <span class="footer__sep" aria-hidden="true">·</span>
+        <time datetime="2026">&copy; 2026 GRINDFATHER Coffee Co.</time>
+      </p>
+    </div>
   </div>
 
   <div class="footer__legal">
-    <div class="footer__legal-inner">
-      <details class="legal-block">
-        <summary class="legal-block__trigger">Terms &amp; Conditions</summary>
-        <div class="legal-block__body">
-          <ol class="legal-list">
-            <li>GRINDFATHER Coffee Co. trades from GymVision, Croescadarn Close, Pentwyn, Cardiff CF23 8HE (Mon–Fri) and Riverside Market, Fitzhamon Embankment, Cardiff CF11 6AN (Sundays).</li>
-            <li>Prices in GBP, inclusive of VAT where applicable. Payment due at point of purchase. Cash and major debit/credit cards accepted.</li>
-            <li>Products may contain or come into contact with the 14 major allergens (gluten, dairy, nuts, soya, eggs). Inform staff of any allergies before ordering.</li>
-            <li>Event/private booking deposits may be non-refundable. Cancellations fewer than 14 days before event may forfeit deposit.</li>
-            <li>Governed by the laws of England and Wales.</li>
-          </ol>
-          <p class="legal-contact">Contact: <a href="mailto:thegrindfathercoffee@gmail.com">thegrindfathercoffee@gmail.com</a></p>
-        </div>
-      </details>
-
-      <details class="legal-block">
-        <summary class="legal-block__trigger">Privacy Policy</summary>
-        <div class="legal-block__body">
-          <p><strong>Data collected:</strong> name, email, message content (enquiries); booking details; IP/browser/pages (website analytics).</p>
-          <p>Data not sold. Retained up to 2 years after last contact.</p>
-          <p><strong>Rights:</strong> access, correction, erasure, restriction, portability. Email <a href="mailto:thegrindfathercoffee@gmail.com">thegrindfathercoffee@gmail.com</a></p>
-          <p>ICO complaints: <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a> / 0303 123 1113</p>
-          <p class="legal-contact">Last updated 17 May 2026.</p>
-        </div>
-      </details>
-    </div>
+    <details class="legal-block">
+      <summary class="legal-block__trigger">Terms &amp; Conditions · Privacy Policy</summary>
+      <div class="legal-block__body">
+        <p><strong>Trading:</strong> GymVision, Croescadarn Close, Pentwyn, Cardiff CF23 8HE (Mon–Fri) and Riverside Market, Fitzhamon Embankment, Cardiff CF11 6AN (Sundays). Prices in GBP incl. VAT. Cash and cards accepted. Products may contain the 14 major allergens — inform staff of allergies. Event deposits may be non-refundable; cancellations &lt;14 days may forfeit deposit. Governed by the laws of England and Wales.</p>
+        <p><strong>Privacy:</strong> Data collected includes name, email, enquiry content, booking details, and analytics (IP/browser/pages). Not sold. Retained up to 2 years after last contact. Rights: access, correction, erasure, restriction, portability. ICO complaints: <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a> / 0303 123 1113. Contact: <a href="mailto:thegrindfathercoffee@gmail.com">thegrindfathercoffee@gmail.com</a>. Last updated 17 May 2026.</p>
+      </div>
+    </details>
   </div>
 </footer>
 
@@ -53,15 +34,14 @@
     border-top: 1px solid var(--ink-border);
   }
 
-  .footer__inner {
+  .footer__bar {
     max-width: 72rem;
     margin-inline: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
     gap: 1rem;
-    padding: 2.5rem;
+    padding: 1.5rem 2.5rem;
   }
 
   .footer__wordmark {
@@ -71,6 +51,7 @@
     letter-spacing: 0.06em;
     color: var(--paper);
     transition: color 200ms var(--ease-out-quart);
+    flex-shrink: 0;
   }
 
   @media (hover: hover) {
@@ -85,10 +66,18 @@
     border-radius: 1px;
   }
 
+  .footer__right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
   .footer__social {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.625rem;
     font-family: var(--font-body);
     font-size: 0.6875rem;
     font-weight: 500;
@@ -118,8 +107,7 @@
   .footer__meta {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
+    gap: 0.5rem;
     font-family: var(--font-body);
     font-size: 0.6875rem;
     font-weight: 400;
@@ -132,22 +120,17 @@
     font-weight: 300;
   }
 
-  /* Legal accordion */
+  /* Legal strip */
   .footer__legal {
     border-top: 1px solid var(--ink-border);
     padding: 0 2.5rem;
-  }
-
-  .footer__legal-inner {
     max-width: 72rem;
     margin-inline: auto;
-    display: flex;
-    gap: 0;
-    flex-direction: column;
   }
 
   .legal-block {
-    border-bottom: 1px solid var(--ink-border);
+    max-width: 72rem;
+    margin-inline: auto;
   }
 
   .legal-block__trigger {
@@ -155,13 +138,12 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 1.125rem 0;
+    padding: 0.75rem 0;
     min-height: 44px;
     font-family: var(--font-body);
     font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 0.08em;
     color: var(--ink-muted);
     cursor: pointer;
     list-style: none;
@@ -174,10 +156,11 @@
 
   .legal-block__trigger::after {
     content: '+';
-    font-size: 1rem;
+    font-size: 0.875rem;
     font-weight: 300;
     color: var(--ink-border);
     transition: transform 200ms var(--ease-out-quart);
+    flex-shrink: 0;
   }
 
   details[open] .legal-block__trigger::after {
@@ -186,7 +169,7 @@
 
   @media (hover: hover) {
     .legal-block__trigger:hover {
-      color: var(--paper);
+      color: var(--paper-faint);
     }
   }
 
@@ -200,17 +183,16 @@
     padding-bottom: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.625rem;
   }
 
-  .legal-block__body p,
-  .legal-block__body li {
+  .legal-block__body p {
     font-family: var(--font-body);
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     font-weight: 400;
-    line-height: 1.65;
+    line-height: 1.6;
     color: var(--paper-faint);
-    max-width: 70ch;
+    max-width: 80ch;
   }
 
   .legal-block__body strong {
@@ -231,33 +213,17 @@
     }
   }
 
-  .legal-list {
-    padding-left: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .legal-contact {
-    margin-top: 0.25rem;
-  }
-
-  @media (max-width: 860px) {
-    .footer__inner {
-      justify-content: flex-start;
-    }
-
-    .footer__meta {
-      width: 100%;
-    }
-  }
-
   @media (max-width: 640px) {
-    .footer__inner {
+    .footer__bar {
       flex-direction: column;
       align-items: flex-start;
       gap: 0.75rem;
-      padding: 2rem 1.25rem;
+      padding: 1.25rem;
+    }
+
+    .footer__right {
+      justify-content: flex-start;
+      gap: 1rem;
     }
 
     .footer__legal {
