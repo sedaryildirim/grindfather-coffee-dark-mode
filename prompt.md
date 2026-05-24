@@ -1,7 +1,7 @@
 # Grindfather Coffee — Session Handoff
 
 > Machine-readable context for next Claude instance. Read this fully before touching any file.
-> Generated: 2026-05-24 | Last commit: `7e02649`
+> Generated: 2026-05-24 | Last commit: `c3b8f19`
 
 ---
 
@@ -71,7 +71,7 @@ src/
 --ink-dim: oklch(64% 0.008 155)
 
 --paper: oklch(96% 0.006 85)             /* primary light surface */
---paper-muted: oklch(40% 0.006 85)       /* WARNING: dark-section scale — do NOT use on light bg */
+--paper-muted: oklch(40% 0.006 85)       /* WARNING: UNUSED DEAD TOKEN — dangerous if misused on light bg */
 --paper-faint: oklch(58% 0.006 85)       /* secondary text on dark */
 --paper-muted-dark: oklch(65% 0.006 85)
 --paper-dim: oklch(70% 0.006 85)
@@ -219,8 +219,6 @@ All findings resolved in commit `7e02649`:
 | Theming | 3/4 | hard-coded oklch → var(--ink-body), --paper-muted → --ink-subtle |
 | Anti-Patterns | 4/4 | No issues |
 
-Expected score after fixes: **18–19/20**.
-
 ### `/impeccable critique` Run 2 (2026-05-24): **24/40**
 
 All P0/P1/P2 findings resolved in commit `e06e20c`:
@@ -232,8 +230,26 @@ All P0/P1/P2 findings resolved in commit `e06e20c`:
 | P1 | GymVision needs landmark sentence | "Inside the gym" added to area hint |
 | P2 | Closing strip cold | "Follow on Instagram" CTA added |
 
+### `/impeccable audit` — Run 2 (2026-05-24): **17/20 Good**
+
+All P2/P3 findings resolved in commit `c3b8f19`:
+
+| Pri | Issue | Fixed |
+|---|---|---|
+| P2 | Missing `:focus-visible` on `location__site-link` | Added outline rule |
+| P2 | Missing `:focus-visible` on `events__cta-note a` inline links | Added outline rule |
+| P2 | No `srcset` on about image | Added `srcset 900w` + `sizes` (Hero deferred — wrong photo) |
+| P2 | `location__site-link` sub-44px touch target | Added `min-height: 44px` + `display: inline-flex` |
+| P3 | Secondary `<blockquote>` wraps inline text without `<p>` | Wrapped in `<p>` + margin reset |
+| P3 | `--paper-muted` dead token at oklch(40%) | Removed from `global.css` |
+| P3 | `will-change: transform, opacity` on all 15+ menu items | Removed from `.menu__item` in `@supports` block |
+
 **Outstanding (hero image blocked)**:
 - P0: Hero image shows gym interior — needs coffee van exterior / barista photo. CSS cannot fix this.
+
+### `/impeccable audit` — Run 3 (pending)
+
+Not yet run. Expected score: **19–20/20** (only P0 hero image remains unresolvable).
 
 ---
 
@@ -242,11 +258,10 @@ All P0/P1/P2 findings resolved in commit `e06e20c`:
 ### Blocked (hero photo)
 - Hero image replacement — new photo needed (coffee van exterior, latte art, or barista at Faema E61). Until then brightness(0.3) + heavy overlay is the mitigation.
 
-### Next logical tasks
-1. Re-run `/impeccable audit` to confirm score improvement after `7e02649` fixes
-2. Re-run `/impeccable critique` (Run 3) to check heuristic improvement
-3. Consider `/impeccable polish` for final pre-ship pass
-4. Consider adding a contact form (Netlify Forms or Formspree) to replace mailto-only events path — still a latent P1
+### Next logical tasks (priority order)
+1. Re-run `/impeccable audit` — expect 19–20/20 (all P2/P3 resolved; only P0 hero photo remains)
+2. Hero image replacement — new photo needed (coffee van exterior, latte art, or barista at Faema E61)
+3. Consider adding a contact form (Netlify Forms or Formspree) to replace mailto-only events path — latent P1
 
 ---
 
@@ -292,6 +307,7 @@ git add <files> && git commit -m "..." && git push origin main
 ## Session Commit Log (this session)
 
 ```
+c3b8f19  fix(audit): resolve all P2 and P3 findings from impeccable audit run 2
 7e02649  fix(audit): apply all P1/P2/P3 audit findings
 92779a2  chore: update wolf memory log
 e06e20c  fix(critique): apply Run 2 P0/P1/P2 issues
@@ -300,3 +316,11 @@ e06e20c  fix(critique): apply Run 2 P0/P1/P2 issues
 d92ff1e  fix: add cursor pointer to all interactive link elements
 5a7b676  UX/design improvements: events section, hero, contrast, menu, location
 ```
+
+## Session Activity (2026-05-24, this session)
+
+- Run `/impeccable audit` Run 2 → **17/20 Good** (up from 16/20)
+  - 0 P0, 0 P1, 4 P2, 3 P3 findings documented above
+- Set up global `pre-clear-handoff.sh` hook in `~/.claude/settings.json`
+  - Blocks `/clear` until `prompt.md` is freshly written (within 5 min)
+  - Hook path: `~/.claude/hooks/pre-clear-handoff.sh`
