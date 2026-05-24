@@ -18,12 +18,13 @@
           <p class="location__venue-label">MON–FRI</p>
           <h3 class="location__venue-name">GYMVISION</h3>
         </div>
-        <p class="location__status" aria-live="polite" id="gymvision-status">Check hours below</p>
+        <p class="location__status" aria-live="polite" id="gymvision-status"></p>
         <address class="location__address">
           Avenue Industrial Park<br />
           Croescadarn Close, Pentwyn<br />
           Cardiff CF23 8HE
         </address>
+        <p class="location__area-hint">Pentwyn, NE Cardiff · approx. 15 min from the city centre</p>
         <a
           href="https://gymvision.co.uk"
           class="location__site-link"
@@ -68,7 +69,7 @@
           <p class="location__venue-label">SUNDAY</p>
           <h3 class="location__venue-name">RIVERSIDE MARKET</h3>
         </div>
-        <p class="location__status" aria-live="polite" id="riverside-status">Check hours below</p>
+        <p class="location__status" aria-live="polite" id="riverside-status"></p>
         <address class="location__address">
           Fitzhamon Embankment<br />
           Cardiff CF11 6AN<br />
@@ -241,12 +242,21 @@
     font-style: normal;
   }
 
+  .location__area-hint {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin-top: -0.75rem;
+  }
+
   .location__site-link {
     font-family: var(--font-body);
     font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.04em;
-    color: var(--paper-muted);
+    color: var(--ink-subtle);
     cursor: pointer;
     transition: color 200ms var(--ease-out-quart);
     margin-top: -0.5rem;
