@@ -11,7 +11,7 @@
   src: url('/grindfather-coffee-dark-mode/fonts/Barlow-Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 
 @font-face {
@@ -31,7 +31,7 @@
 }
 
 :root {
-  --ink: #000f08;
+  --ink: oklch(3% 0.01 155);
   --ink-border: oklch(18% 0.008 155);
   --ink-muted: oklch(52% 0.008 155);
   --paper: oklch(96% 0.006 85);
@@ -139,6 +139,16 @@ a {
   }
   html {
     scroll-behavior: auto;
+  }
+}
+
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (max-width: 640px) {
+  section[id] {
+    scroll-margin-top: 4.75rem;
   }
 }
 

@@ -37,8 +37,18 @@ const hotDrinks = [
   <div class="menu__inner">
     <h2 id="menu-title" class="sr-only">Menu</h2>
 
+    <nav class="menu__jumpnav" aria-label="Jump to menu category">
+      <a href="#cat-coffee">COFFEE</a>
+      <span aria-hidden="true">·</span>
+      <a href="#cat-tea">TEA</a>
+      <span aria-hidden="true">·</span>
+      <a href="#cat-hotdrinks">HOT DRINKS</a>
+      <span aria-hidden="true">·</span>
+      <a href="#cat-shakes">SHAKES</a>
+    </nav>
+
     <!-- COFFEE -->
-    <div class="menu__group" data-reveal>
+    <div class="menu__group" id="cat-coffee" data-reveal>
       <p class="menu__category">COFFEE</p>
       <hr class="menu__rule" />
       <ul class="menu__list" role="list">
@@ -56,7 +66,7 @@ const hotDrinks = [
     </div>
 
     <!-- TEA -->
-    <div class="menu__group" data-reveal data-delay="1">
+    <div class="menu__group" id="cat-tea" data-reveal data-delay="1">
       <p class="menu__category">TEA</p>
       <hr class="menu__rule" />
       <ul class="menu__list" role="list">
@@ -80,7 +90,7 @@ const hotDrinks = [
     </div>
 
     <!-- HOT DRINKS -->
-    <div class="menu__group" data-reveal data-delay="2">
+    <div class="menu__group" id="cat-hotdrinks" data-reveal data-delay="2">
       <p class="menu__category">HOT DRINKS</p>
       <hr class="menu__rule" />
       <ul class="menu__list" role="list">
@@ -105,7 +115,7 @@ const hotDrinks = [
     </div>
 
     <!-- SHAKES -->
-    <div class="menu__group menu__group--shakes" data-reveal data-delay="3">
+    <div class="menu__group menu__group--shakes" id="cat-shakes" data-reveal data-delay="3">
       <p class="menu__category">SHAKES</p>
       <hr class="menu__rule" />
       <div class="shakes__builder">
@@ -165,6 +175,44 @@ const hotDrinks = [
     margin-top: 2.5rem;
   }
 
+  .menu__jumpnav {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--ink-border);
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--ink-border);
+  }
+
+  .menu__jumpnav a {
+    color: var(--ink-muted);
+    transition: color 200ms var(--ease-out-quart);
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  @media (hover: hover) {
+    .menu__jumpnav a:hover {
+      color: var(--paper);
+    }
+  }
+
+  .menu__jumpnav a:focus-visible {
+    outline: 2px solid var(--paper);
+    outline-offset: 4px;
+    border-radius: 1px;
+  }
+
+  .menu__group[id] {
+    scroll-margin-top: 5.5rem;
+  }
+
   .menu__category {
     font-family: var(--font-body);
     font-size: 0.75rem;
@@ -174,7 +222,7 @@ const hotDrinks = [
     text-transform: uppercase;
     margin-bottom: 0.875rem;
     position: sticky;
-    top: 4rem;
+    top: 5.5rem;
     z-index: 2;
     background-color: var(--ink);
     padding-top: 0.875rem;
@@ -248,12 +296,13 @@ const hotDrinks = [
 
   .menu__tag {
     font-family: var(--font-body);
-    font-size: 0.625rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.08em;
-    color: var(--ink-muted);
-    border: 1px solid color-mix(in oklch, var(--ink-muted) 35%, transparent);
-    padding: 0.0625rem 0.3125rem;
+    color: var(--ink-dim);
+    border: 1px solid color-mix(in oklch, var(--ink-muted) 55%, transparent);
+    background-color: color-mix(in oklch, var(--ink-muted) 8%, transparent);
+    padding: 0.0625rem 0.375rem;
     text-decoration: none;
     cursor: help;
     line-height: 1.6;
@@ -401,6 +450,14 @@ const hotDrinks = [
 
     .menu__group {
       margin-bottom: 3rem;
+    }
+
+    .menu__group[id] {
+      scroll-margin-top: 4.75rem;
+    }
+
+    .menu__category {
+      top: 4.75rem;
     }
 
     .shakes__tier {
