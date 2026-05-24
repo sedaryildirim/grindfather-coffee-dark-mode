@@ -127,8 +127,13 @@
         if (!entry.isIntersecting) return;
         const id = entry.target.id;
         navLinks.forEach(a => {
-          a.classList.toggle('nav__link--active', a.getAttribute('href') === `#${id}`);
-          a.toggleAttribute('aria-current', a.getAttribute('href') === `#${id}`);
+          const isActive = a.getAttribute('href') === `#${id}`;
+          a.classList.toggle('nav__link--active', isActive);
+          if (isActive) {
+            a.setAttribute('aria-current', 'location');
+          } else {
+            a.removeAttribute('aria-current');
+          }
         });
       });
     },
@@ -372,7 +377,7 @@
 
   @media (hover: hover) {
     .nav__drawer-links a:hover {
-      color: color-mix(in oklch, var(--paper) 50%, transparent);
+      color: color-mix(in oklch, var(--paper) 65%, transparent);
     }
   }
 

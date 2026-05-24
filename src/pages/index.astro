@@ -180,6 +180,8 @@ import '../styles/global.css';
       const scrollProgress = document.getElementById('scroll-progress');
       const scrollTopBtn = document.getElementById('scroll-top');
 
+      let bgCheckPending = false;
+
       window.addEventListener('scroll', () => {
         const y = window.scrollY;
         const max = document.documentElement.scrollHeight - window.innerHeight;
@@ -194,15 +196,22 @@ import '../styles/global.css';
           scrollTopBtn.setAttribute('aria-hidden', String(!visible));
           scrollTopBtn.tabIndex = visible ? 0 : -1;
 
-          // Detect background colour under button and invert if light
-          const rect = scrollTopBtn.getBoundingClientRect();
-          const cx = rect.left + rect.width / 2;
-          const cy = rect.top + rect.height / 2;
-          scrollTopBtn.style.visibility = 'hidden';
-          const under = document.elementFromPoint(cx, cy);
-          scrollTopBtn.style.visibility = '';
-          const isLight = !!under?.closest('[data-bg="light"]');
-          scrollTopBtn.classList.toggle('scroll-top--on-light', isLight);
+          // Detect background colour under button and invert if light.
+          // Batched in rAF to avoid forced synchronous reflow per scroll tick.
+          if (!bgCheckPending) {
+            bgCheckPending = true;
+            requestAnimationFrame(() => {
+              const rect = scrollTopBtn.getBoundingClientRect();
+              const cx = rect.left + rect.width / 2;
+              const cy = rect.top + rect.height / 2;
+              scrollTopBtn.style.visibility = 'hidden';
+              const under = document.elementFromPoint(cx, cy);
+              scrollTopBtn.style.visibility = '';
+              const isLight = !!under?.closest('[data-bg="light"]');
+              scrollTopBtn.classList.toggle('scroll-top--on-light', isLight);
+              bgCheckPending = false;
+            });
+          }
         }
       }, { passive: true });
 
@@ -306,8 +315,8 @@ import '../styles/global.css';
     }
 
     .scroll-top--on-light:hover {
-      background-color: oklch(18% 0.008 155);
-      border-color: oklch(18% 0.008 155);
+      background-color: var(--ink-body);
+      border-color: var(--ink-body);
       color: var(--brick);
     }
   }
