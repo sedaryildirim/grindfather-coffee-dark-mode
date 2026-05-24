@@ -30,9 +30,13 @@
       </a>
       <a href="#visit" class="hero__cta-secondary" aria-label="Find our locations">FIND US <span aria-hidden="true">↓</span></a>
     </div>
-    <p class="hero__rating" aria-label="5 stars on Google">
-      ★★★★★ <span>5.0 · Google</span>
-    </p>
+    <a
+      href="https://maps.google.com/?place_id=ChIJLcsP_7kdbkgRX-_iTMjh2uI#reviews"
+      class="hero__rating"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="5 stars on Google — read reviews (opens in new tab)"
+    >★★★★★ <span>5.0 · Google ↗</span></a>
   </div>
 
   <div class="ticker" aria-hidden="true">
@@ -186,10 +190,24 @@
     font-weight: 500;
     letter-spacing: 0.06em;
     color: var(--brick-light);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.625rem;
     animation: cta-in 500ms var(--ease-out-quart) 700ms both;
+    transition: color 200ms var(--ease-out-quart);
+    width: fit-content;
+  }
+
+  @media (hover: hover) {
+    .hero__rating:hover {
+      color: var(--brick-hover);
+    }
+  }
+
+  .hero__rating:focus-visible {
+    outline: 2px solid var(--paper);
+    outline-offset: 4px;
+    border-radius: 1px;
   }
 
   .hero__rating span {

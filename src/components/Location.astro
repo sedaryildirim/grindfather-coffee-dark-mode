@@ -115,11 +115,14 @@
 
 <script>
   function getStatuses() {
-    const now = new Date();
-    const day = now.getDay(); // 0=Sun, 1=Mon…6=Sat
-    const hour = now.getHours();
-    const minute = now.getMinutes();
-    const time = hour + minute / 60;
+    // Use Cardiff local time regardless of visitor's device timezone
+    const cardiffStr = new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' });
+    const [datePart, timePart] = cardiffStr.split(', ');
+    const [d, m, y] = datePart.split('/').map(Number);
+    const [h, min] = timePart.split(':').map(Number);
+    const cardiffDate = new Date(y, m - 1, d, h, min);
+    const day = cardiffDate.getDay(); // 0=Sun, 1=Mon…6=Sat
+    const time = h + min / 60;
 
     const gymOpen = day >= 1 && day <= 5 && time >= 6.5 && time < 15;
     const riversideOpen = day === 0 && time >= 10 && time < 14;

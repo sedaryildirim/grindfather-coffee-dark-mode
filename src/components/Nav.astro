@@ -28,6 +28,7 @@
 
 <div class="nav__drawer" id="nav-drawer" aria-hidden="true">
   <button class="nav__drawer-close" aria-label="Close navigation">
+    <span class="nav__drawer-close-label" aria-hidden="true">CLOSE</span>
     <span class="nav__toggle-bar"></span>
     <span class="nav__toggle-bar"></span>
   </button>
@@ -307,16 +308,25 @@
     top: 1rem;
     right: 1.25rem;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 44px;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 44px;
     height: 44px;
     padding: 0 10px;
     background: none;
     border: none;
     cursor: pointer;
     z-index: 102;
+  }
+
+  .nav__drawer-close-label {
+    font-family: var(--font-body);
+    font-size: 0.5625rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--ink-muted);
+    text-transform: uppercase;
   }
 
   .nav__drawer-close .nav__toggle-bar:nth-child(1) {
