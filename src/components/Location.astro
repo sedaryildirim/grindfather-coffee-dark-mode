@@ -252,6 +252,9 @@
   }
 
   .location__site-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     font-family: var(--font-body);
     font-size: 0.75rem;
     font-weight: 500;
@@ -266,6 +269,12 @@
     .location__site-link:hover {
       color: var(--ink);
     }
+  }
+
+  .location__site-link:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 4px;
+    border-radius: 1px;
   }
 
   .hours-table {

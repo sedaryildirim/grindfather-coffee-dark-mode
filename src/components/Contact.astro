@@ -136,7 +136,7 @@ const eventReview = {
           <li class:list={["review--secondary", {
             "review--secondary--full": secondaryReviews.length % 2 !== 0 && i === secondaryReviews.length - 1
           }]}>
-            <blockquote class="review__quote">"{r.quote}"</blockquote>
+            <blockquote class="review__quote"><p>"{r.quote}"</p></blockquote>
             <footer class="review__footer">
               <span class="review__name">{r.name}</span>
               <span class="review__via">{r.via}</span>
@@ -339,6 +339,12 @@ const eventReview = {
     }
   }
 
+  .events__cta-note a:focus-visible {
+    outline: 2px solid var(--paper);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
   /* Event social proof quote */
   .events__proof {
     border-top: 1px solid var(--ink-border);
@@ -467,6 +473,10 @@ const eventReview = {
     font-style: normal;
     margin-bottom: 1rem;
     max-width: 46ch;
+  }
+
+  .review__quote p {
+    margin: 0;
   }
 
   .review--secondary--full .review__quote {
