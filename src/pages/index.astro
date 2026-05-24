@@ -189,7 +189,7 @@ import '../styles/global.css';
         }
 
         if (scrollTopBtn) {
-          const visible = y >= 400;
+          const visible = y >= window.innerHeight * 0.8;
           scrollTopBtn.classList.toggle('scroll-top--visible', visible);
           scrollTopBtn.setAttribute('aria-hidden', String(!visible));
           scrollTopBtn.tabIndex = visible ? 0 : -1;
@@ -281,9 +281,15 @@ import '../styles/global.css';
   }
 
   .scroll-top--visible {
-    opacity: 1;
+    opacity: 0.55;
     transform: none;
     pointer-events: auto;
+  }
+
+  @media (hover: hover) {
+    .scroll-top--visible:hover {
+      opacity: 1;
+    }
   }
 
   .scroll-top--on-light {

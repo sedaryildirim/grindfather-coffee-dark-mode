@@ -30,19 +30,19 @@
 
           <dl class="about__facts">
             <div class="about__fact">
-              <dt>A Decade On</dt>
+              <dt><span class="about__fact-num" aria-hidden="true">01</span>A Decade On</dt>
               <dd>Trading since 2015. Same drum roaster, same farmers, sharper ear.</dd>
             </div>
             <div class="about__fact">
-              <dt>Single Origin</dt>
+              <dt><span class="about__fact-num" aria-hidden="true">02</span>Single Origin</dt>
               <dd>One farm at a time, sourced direct. Rotated seasonally; ask what's on today.</dd>
             </div>
             <div class="about__fact">
-              <dt>By Ear</dt>
+              <dt><span class="about__fact-num" aria-hidden="true">03</span>By Ear</dt>
               <dd>No automated roast profiles. Colour, aroma, and sound guide every batch.</dd>
             </div>
             <div class="about__fact">
-              <dt>The Machine</dt>
+              <dt><span class="about__fact-num" aria-hidden="true">04</span>The Machine</dt>
               <dd>A 1969 Faema E61, restored by hand over two winters. Pulls every shot.</dd>
             </div>
           </dl>
@@ -58,6 +58,7 @@
     color: var(--ink);
     padding: 3.5rem 0 7rem;
     overflow-x: clip;
+    border-bottom: 2px solid var(--ink);
   }
 
   .about__inner {
@@ -82,7 +83,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 15%;
+    object-position: center 10%;
     filter: grayscale(100%) contrast(1.1) brightness(0.85);
     display: block;
   }
@@ -146,6 +147,18 @@
     color: var(--ink);
     line-height: 0.95;
     margin-bottom: 0.625rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .about__fact-num {
+    font-family: var(--font-body);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--ink-subtle);
+    text-transform: none;
   }
 
   .about__fact dd {

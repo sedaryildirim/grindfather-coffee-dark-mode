@@ -143,7 +143,7 @@ const hotDrinks = [
   }
 
   .menu__inner {
-    max-width: 56rem;
+    max-width: 48rem;
     margin-inline: auto;
   }
 
@@ -155,15 +155,19 @@ const hotDrinks = [
     margin-bottom: 0;
   }
 
+  .menu__group + .menu__group {
+    margin-top: 2rem;
+  }
+
   .menu__group--shakes {
     margin-top: 2.5rem;
   }
 
   .menu__category {
     font-family: var(--font-body);
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     font-weight: 500;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.18em;
     color: var(--brick-light);
     text-transform: uppercase;
     margin-bottom: 0.875rem;
@@ -171,8 +175,8 @@ const hotDrinks = [
     top: 4rem;
     z-index: 2;
     background-color: var(--ink);
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.875rem;
+    padding-bottom: 0.875rem;
   }
 
   .menu__rule {
