@@ -394,6 +394,12 @@ const eventReview = {
     transition: border-color 200ms var(--ease-out-quart);
   }
 
+  .enquiry-form__input:focus-visible {
+    outline: 2px solid var(--brick);
+    outline-offset: 2px;
+    border-radius: 1px;
+  }
+
   .enquiry-form__input::placeholder {
     color: var(--ink-muted);
     opacity: 1;
@@ -435,7 +441,7 @@ const eventReview = {
     border: none;
     border-bottom: 1px solid var(--brick);
     cursor: pointer;
-    transition: border-color 250ms var(--ease-out-quart), transform 160ms var(--ease-out-quart);
+    transition: border-color 250ms var(--ease-out-quart), transform 160ms var(--ease-out-quart), opacity 160ms var(--ease-out-quart);
     margin-top: 0.25rem;
   }
 

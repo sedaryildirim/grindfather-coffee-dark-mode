@@ -176,6 +176,7 @@ const hotDrinks = [
   .menu__jumpnav {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 0.875rem;
     margin-bottom: 3rem;
     padding-bottom: 1.5rem;
@@ -188,10 +189,15 @@ const hotDrinks = [
 
   .menu__jumpnav a {
     color: var(--ink-muted);
-    transition: color 200ms var(--ease-out-quart);
+    transition: color 200ms var(--ease-out-quart), opacity 160ms var(--ease-out-quart), transform 160ms var(--ease-out-quart);
     min-height: 44px;
     display: inline-flex;
     align-items: center;
+  }
+
+  .menu__jumpnav a:active {
+    opacity: 0.7;
+    transform: scale(0.97);
   }
 
   @media (hover: hover) {
@@ -277,7 +283,7 @@ const hotDrinks = [
     max-width: 52ch;
   }
 
-.menu__item-varieties {
+  .menu__item-varieties {
     font-size: 0.75rem;
     font-weight: 400;
     color: var(--ink-muted);
