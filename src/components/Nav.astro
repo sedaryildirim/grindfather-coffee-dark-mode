@@ -192,7 +192,6 @@
 
     .nav__wordmark:hover {
       color: color-mix(in oklch, var(--paper) 70%, transparent);
-      letter-spacing: 0.12em;
     }
   }
 
@@ -208,7 +207,7 @@
     font-weight: 500;
     letter-spacing: 0.12em;
     color: var(--ink-muted);
-    transition: color 200ms var(--ease-out-quart);
+    transition: color 200ms var(--ease-out-quart), transform 160ms var(--ease-out-quart);
     position: relative;
     padding-bottom: 3px;
   }
@@ -246,6 +245,7 @@
 
   .nav__links a:active {
     opacity: 0.6;
+    transform: scale(0.97);
   }
 
   /* Hamburger toggle — hidden on desktop */

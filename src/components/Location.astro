@@ -18,7 +18,7 @@
           <p class="location__venue-label">MON–FRI</p>
           <h3 class="location__venue-name">GYMVISION</h3>
         </div>
-        <p class="location__status" aria-live="polite" id="gymvision-status"></p>
+        <p class="location__status" aria-live="polite" id="gymvision-status" data-open="false">—</p>
         <address class="location__address">
           Avenue Industrial Park<br />
           Croescadarn Close, Pentwyn<br />
@@ -69,7 +69,7 @@
           <p class="location__venue-label">SUNDAY</p>
           <h3 class="location__venue-name">RIVERSIDE MARKET</h3>
         </div>
-        <p class="location__status" aria-live="polite" id="riverside-status"></p>
+        <p class="location__status" aria-live="polite" id="riverside-status" data-open="false">—</p>
         <address class="location__address">
           Fitzhamon Embankment<br />
           Cardiff CF11 6AN<br />
@@ -238,7 +238,7 @@
     font-size: 0.9375rem;
     font-weight: 400;
     line-height: 1.65;
-    color: oklch(22% 0.008 155);
+    color: var(--ink-soft);
     font-style: normal;
   }
 
@@ -316,7 +316,7 @@
     padding-bottom: 0.25rem;
     border-bottom: 1px solid var(--brick);
     cursor: pointer;
-    transition: border-color 200ms var(--ease-out-quart);
+    transition: border-color 200ms var(--ease-out-quart), transform 160ms var(--ease-out-quart);
     width: fit-content;
   }
 
@@ -328,6 +328,7 @@
 
   .location__map-link:active {
     opacity: 0.7;
+    transform: scale(0.97);
   }
 
   .location__status {

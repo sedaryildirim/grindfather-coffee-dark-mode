@@ -229,7 +229,7 @@ import '../styles/global.css';
 <style is:global>
   .skip-link {
     position: absolute;
-    top: -100%;
+    top: 0;
     left: 1rem;
     padding: 0.5rem 1rem;
     background: var(--paper);
@@ -239,11 +239,12 @@ import '../styles/global.css';
     font-weight: 500;
     z-index: 999;
     border-radius: 0 0 4px 4px;
-    transition: top 200ms;
+    transform: translateY(-110%);
+    transition: transform 200ms var(--ease-out-quart);
   }
 
   .skip-link:focus {
-    top: 0;
+    transform: translateY(0);
   }
 
   #scroll-progress {
@@ -286,11 +287,11 @@ import '../styles/global.css';
       background-color 200ms var(--ease-out-quart),
       border-color 200ms var(--ease-out-quart),
       opacity 250ms var(--ease-out-quart),
-      transform 250ms var(--ease-out-quart);
+      transform 160ms var(--ease-out-quart);
   }
 
   .scroll-top--visible {
-    opacity: 0.55;
+    opacity: 0.75;
     transform: none;
     pointer-events: auto;
   }

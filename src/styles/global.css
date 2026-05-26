@@ -8,14 +8,6 @@
 
 @font-face {
   font-family: 'Barlow';
-  src: url('/grindfather-coffee-dark-mode/fonts/Barlow-Light.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-  font-display: optional;
-}
-
-@font-face {
-  font-family: 'Barlow';
   src: url('/grindfather-coffee-dark-mode/fonts/Barlow-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;

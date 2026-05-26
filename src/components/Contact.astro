@@ -279,7 +279,7 @@ const eventReview = {
     padding-bottom: 0.25rem;
     border-bottom: 1px solid var(--brick);
     cursor: pointer;
-    transition: border-color 250ms var(--ease-out-quart);
+    transition: border-color 250ms var(--ease-out-quart), transform 160ms var(--ease-out-quart);
     width: fit-content;
   }
 
@@ -291,6 +291,7 @@ const eventReview = {
 
   .events__cta:active {
     opacity: 0.7;
+    transform: scale(0.97);
   }
 
   .events__cta-note {
@@ -514,7 +515,7 @@ const eventReview = {
 
   @media (hover: hover) {
     .contact__detail dd a:hover {
-      color: oklch(80% 0.006 85);
+      color: var(--paper);
     }
   }
 

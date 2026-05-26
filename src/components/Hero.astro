@@ -162,11 +162,16 @@
     cursor: pointer;
     padding-bottom: 0.25rem;
     border-bottom: 1px solid var(--brick);
-    transition: color 250ms var(--ease-out-quart), border-color 250ms var(--ease-out-quart);
+    transition: color 250ms var(--ease-out-quart), border-color 250ms var(--ease-out-quart), transform 160ms var(--ease-out-quart);
     animation: cta-in 500ms var(--ease-out-quart) 640ms both;
     min-height: 44px;
     display: inline-flex;
     align-items: center;
+  }
+
+  .hero__cta-secondary:active {
+    opacity: 0.7;
+    transform: scale(0.97);
   }
 
   @media (hover: hover) {
@@ -215,12 +220,13 @@
     padding-bottom: 0.25rem;
     border-bottom: 1px solid var(--brick);
     cursor: pointer;
-    transition: border-color 250ms var(--ease-out-quart), color 250ms var(--ease-out-quart);
+    transition: border-color 250ms var(--ease-out-quart), color 250ms var(--ease-out-quart), transform 160ms var(--ease-out-quart);
     animation: cta-in 500ms var(--ease-out-quart) 580ms both;
   }
 
   .hero__cta:active {
     opacity: 0.7;
+    transform: scale(0.97);
   }
 
   /* Arrow nudge and border on hover — pointer devices only */

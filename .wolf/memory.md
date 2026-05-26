@@ -57,3 +57,4 @@
 | 16:10 | designqc: captured 2 screenshots (36KB, ~5000 tok) | / | ready for eval | ~0 |
 | 16:11 | designqc: captured 6 screenshots (245KB, ~15000 tok) | / | ready for eval | ~0 |
 | 16:20 | designqc: captured 6 screenshots (247KB, ~15000 tok) | / | ready for eval | ~0 |
+| 16:31 | Added drawer link stagger (Nav.astro) + footer SDA entrance (Footer.astro) | Nav.astro, Footer.astro | Complete | ~800 |
