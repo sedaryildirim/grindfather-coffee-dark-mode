@@ -67,7 +67,7 @@ const eventReview = {
             <dd>4 weeks minimum</dd>
           </div>
         </dl>
-        <form class="enquiry-form" id="enquiry-form" novalidate aria-label="Event booking enquiry">
+        <form class="enquiry-form" id="enquiry-form" aria-label="Event booking enquiry">
           <input type="hidden" name="access_key" value="98bb4da2-21ca-4947-96f7-5e66ac2b48e6" />
           <input type="hidden" name="subject" value="Event Booking Enquiry — GRINDFATHER Coffee Co." />
           <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" aria-hidden="true" />
@@ -103,6 +103,34 @@ const eventReview = {
           <div class="enquiry-form__field">
             <label class="enquiry-form__label" for="eq-date">EVENT DATE</label>
             <input class="enquiry-form__input" type="text" id="eq-date" name="event_date" placeholder="e.g. June 2026 or 14 Aug 2026" />
+          </div>
+
+          <div class="enquiry-form__row">
+            <div class="enquiry-form__field">
+              <label class="enquiry-form__label" for="eq-start">START TIME</label>
+              <input class="enquiry-form__input" type="text" id="eq-start" name="start_time" placeholder="e.g. 09:00" />
+            </div>
+            <div class="enquiry-form__field">
+              <label class="enquiry-form__label" for="eq-finish">FINISH TIME</label>
+              <input class="enquiry-form__input" type="text" id="eq-finish" name="finish_time" placeholder="e.g. 17:00" />
+            </div>
+          </div>
+
+          <div class="enquiry-form__field">
+            <label class="enquiry-form__label" for="eq-phone">CONTACT TELEPHONE</label>
+            <input class="enquiry-form__input" type="tel" id="eq-phone" name="phone" autocomplete="tel" placeholder="e.g. +44 7700 900000" />
+          </div>
+
+          <div class="enquiry-form__field">
+            <label class="enquiry-form__label" for="eq-utilities">ACCESS TO ELECTRICITY &amp; WATER</label>
+            <select class="enquiry-form__input enquiry-form__select" id="eq-utilities" name="utilities_access">
+              <option value="" disabled selected>Select…</option>
+              <option value="Both">Both available</option>
+              <option value="Electricity only">Electricity only</option>
+              <option value="Water only">Water only</option>
+              <option value="Neither">Neither — we'll need to discuss</option>
+              <option value="Unknown">Not sure yet</option>
+            </select>
           </div>
 
           <div class="enquiry-form__field">
