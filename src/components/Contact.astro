@@ -67,16 +67,65 @@ const eventReview = {
             <dd>4 weeks minimum</dd>
           </div>
         </dl>
-        <a
-          href="mailto:thegrindfathercoffee@gmail.com?subject=Event%20Booking%20Enquiry&body=Name%3A%0A%0AEvent%20type%20(wedding%20%2F%20corporate%20%2F%20pop-up%20%2F%20other)%3A%0A%0ADate%3A%0A%0AGuest%20count%3A%0A%0AMessage%3A"
-          class="events__cta"
-          aria-label="Send event booking enquiry email"
-        >SEND ENQUIRY ↗</a>
-        <p class="events__cta-note">
-          We usually reply within 48 hours. Or reach us at
-          <a href="mailto:thegrindfathercoffee@gmail.com">thegrindfathercoffee@gmail.com</a>
-          or <a href="https://instagram.com/the_grindfather_coffee" target="_blank" rel="noopener noreferrer">DM on Instagram ↗</a>
-        </p>
+        <form class="enquiry-form" id="enquiry-form" novalidate aria-label="Event booking enquiry">
+          <input type="hidden" name="access_key" value="98bb4da2-21ca-4947-96f7-5e66ac2b48e6" />
+          <input type="hidden" name="subject" value="Event Booking Enquiry — GRINDFATHER Coffee Co." />
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" aria-hidden="true" />
+
+          <div class="enquiry-form__row">
+            <div class="enquiry-form__field">
+              <label class="enquiry-form__label" for="eq-name">YOUR NAME</label>
+              <input class="enquiry-form__input" type="text" id="eq-name" name="name" required autocomplete="name" placeholder="Your name" />
+            </div>
+            <div class="enquiry-form__field">
+              <label class="enquiry-form__label" for="eq-email">EMAIL</label>
+              <input class="enquiry-form__input" type="email" id="eq-email" name="email" required autocomplete="email" placeholder="you@example.com" />
+            </div>
+          </div>
+
+          <div class="enquiry-form__row">
+            <div class="enquiry-form__field">
+              <label class="enquiry-form__label" for="eq-type">EVENT TYPE</label>
+              <select class="enquiry-form__input enquiry-form__select" id="eq-type" name="event_type" required>
+                <option value="" disabled selected>Select…</option>
+                <option>Wedding</option>
+                <option>Corporate</option>
+                <option>Pop-up</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="enquiry-form__field">
+              <label class="enquiry-form__label" for="eq-guests">GUEST COUNT</label>
+              <input class="enquiry-form__input" type="number" id="eq-guests" name="guest_count" min="1" placeholder="e.g. 150" />
+            </div>
+          </div>
+
+          <div class="enquiry-form__field">
+            <label class="enquiry-form__label" for="eq-date">EVENT DATE</label>
+            <input class="enquiry-form__input" type="text" id="eq-date" name="event_date" placeholder="e.g. June 2026 or 14 Aug 2026" />
+          </div>
+
+          <div class="enquiry-form__field">
+            <label class="enquiry-form__label" for="eq-message">MESSAGE</label>
+            <textarea class="enquiry-form__input enquiry-form__textarea" id="eq-message" name="message" rows="3" placeholder="Tell us about your event…"></textarea>
+          </div>
+
+          <button type="submit" class="enquiry-form__submit">
+            <span class="enquiry-form__submit-label">SEND ENQUIRY</span>
+            <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <p class="enquiry-form__note">
+            We reply within 48 hours. Or <a href="https://instagram.com/the_grindfather_coffee" target="_blank" rel="noopener noreferrer">DM on Instagram ↗</a>
+          </p>
+        </form>
+
+        <div class="enquiry-success" id="enquiry-success" aria-live="polite" style="display:none">
+          <p class="enquiry-success__title">ENQUIRY SENT</p>
+          <p class="enquiry-success__text">We'll be in touch within 48 hours.</p>
+        </div>
 
         <blockquote class="events__proof">
           <p class="events__proof-quote">"{eventReview.quote}"</p>
@@ -267,50 +316,151 @@ const eventReview = {
     }
   }
 
-  .events__cta {
+  /* Enquiry form */
+  .enquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .enquiry-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .enquiry-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .enquiry-form__label {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+  }
+
+  .enquiry-form__input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--ink-border);
+    color: var(--paper);
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 400;
+    padding: 0.5rem 0;
+    outline: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    transition: border-color 200ms var(--ease-out-quart);
+  }
+
+  .enquiry-form__input::placeholder {
+    color: var(--ink-muted);
+    opacity: 1;
+  }
+
+  .enquiry-form__input:focus {
+    border-bottom-color: var(--brick);
+  }
+
+  .enquiry-form__select {
+    cursor: pointer;
+  }
+
+  .enquiry-form__select option {
+    background: #060f08;
+    color: var(--paper);
+  }
+
+  .enquiry-form__textarea {
+    resize: vertical;
+    min-height: 4.5rem;
+    line-height: 1.6;
+  }
+
+  .enquiry-form__submit {
     display: inline-flex;
     align-items: center;
+    gap: 0.5rem;
+    width: fit-content;
     min-height: 44px;
+    padding-bottom: 0.25rem;
+    font-family: var(--font-body);
     font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--paper);
-    padding-bottom: 0.25rem;
+    background: none;
+    border: none;
     border-bottom: 1px solid var(--brick);
     cursor: pointer;
     transition: border-color 250ms var(--ease-out-quart), transform 160ms var(--ease-out-quart);
-    width: fit-content;
+    margin-top: 0.25rem;
   }
 
   @media (hover: hover) {
-    .events__cta:hover {
+    .enquiry-form__submit:hover {
       border-color: var(--brick-light);
     }
   }
 
-  .events__cta:active {
+  .enquiry-form__submit:active {
     opacity: 0.7;
     transform: scale(0.97);
   }
 
-  .events__cta-note {
-    font-size: 0.8125rem;
-    font-weight: 400;
-    color: var(--paper-dim);
-    line-height: 1.5;
-    margin-top: -0.75rem;
+  .enquiry-form__submit:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
   }
 
-  .events__cta-note a {
+  .enquiry-form__note {
+    font-size: 0.8125rem;
+    color: var(--paper-dim);
+    line-height: 1.5;
+    margin-top: -0.5rem;
+  }
+
+  .enquiry-form__note a {
     color: var(--paper-faint);
     transition: color 200ms var(--ease-out-quart);
   }
 
   @media (hover: hover) {
-    .events__cta-note a:hover {
+    .enquiry-form__note a:hover {
       color: var(--paper);
     }
+  }
+
+  /* Success state */
+  .enquiry-success {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    border-top: 1px solid var(--ink-border);
+    padding-top: 1.5rem;
+  }
+
+  .enquiry-success__title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--brick);
+    line-height: 1;
+    letter-spacing: 0.01em;
+  }
+
+  .enquiry-success__text {
+    font-size: 0.9375rem;
+    color: var(--paper-dim);
+    line-height: 1.6;
   }
 
   /* Event social proof quote */
@@ -648,3 +798,38 @@ const eventReview = {
     }
   }
 </style>
+
+<script>
+  const form = document.getElementById('enquiry-form') as HTMLFormElement | null;
+  const successEl = document.getElementById('enquiry-success') as HTMLElement | null;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const submitBtn = form.querySelector('.enquiry-form__submit') as HTMLButtonElement | null;
+    const submitLabel = form.querySelector('.enquiry-form__submit-label');
+
+    if (submitBtn) submitBtn.disabled = true;
+    if (submitLabel) submitLabel.textContent = 'SENDING…';
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form),
+      });
+
+      const json = await res.json();
+
+      if (json.success) {
+        form.style.display = 'none';
+        if (successEl) successEl.style.display = 'flex';
+      } else {
+        throw new Error(json.message || 'Submission failed');
+      }
+    } catch {
+      if (submitLabel) submitLabel.textContent = 'SEND ENQUIRY';
+      if (submitBtn) submitBtn.disabled = false;
+      alert('Something went wrong. Please email us at thegrindfathercoffee@gmail.com');
+    }
+  });
+</script>
