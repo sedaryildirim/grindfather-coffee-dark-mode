@@ -148,6 +148,7 @@ const eventReview = {
           <p class="enquiry-form__note">
             We reply within 48 hours. Or <a href="https://instagram.com/the_grindfather_coffee" target="_blank" rel="noopener noreferrer">DM on Instagram ↗</a>
           </p>
+          <p class="enquiry-form__error" id="enquiry-error" aria-live="polite" style="display:none"></p>
         </form>
 
         <div class="enquiry-success" id="enquiry-success" aria-live="polite" style="display:none">
@@ -357,6 +358,12 @@ const eventReview = {
     gap: 1.25rem;
   }
 
+  @media (max-width: 600px) {
+    .enquiry-form__row {
+      grid-template-columns: 1fr;
+    }
+  }
+
   .enquiry-form__field {
     display: flex;
     flex-direction: column;
@@ -364,7 +371,7 @@ const eventReview = {
   }
 
   .enquiry-form__label {
-    font-size: 0.6rem;
+    font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.14em;
     color: var(--ink-muted);
@@ -456,6 +463,13 @@ const eventReview = {
     margin-top: -0.5rem;
   }
 
+  .enquiry-form__error {
+    font-size: 0.8125rem;
+    color: var(--brick-light);
+    line-height: 1.5;
+    margin-top: -0.25rem;
+  }
+
   .enquiry-form__note a {
     color: var(--paper-faint);
     transition: color 200ms var(--ease-out-quart);
@@ -474,6 +488,14 @@ const eventReview = {
     gap: 0.625rem;
     border-top: 1px solid var(--ink-border);
     padding-top: 1.5rem;
+    opacity: 1;
+    transition: opacity 400ms var(--ease-out-expo);
+  }
+
+  @starting-style {
+    .enquiry-success {
+      opacity: 0;
+    }
   }
 
   .enquiry-success__title {
@@ -693,7 +715,7 @@ const eventReview = {
 
   @media (hover: hover) {
     .contact__detail dd a:hover {
-      color: var(--paper);
+      color: var(--brick-light);
     }
   }
 
@@ -830,6 +852,7 @@ const eventReview = {
 <script>
   const form = document.getElementById('enquiry-form') as HTMLFormElement | null;
   const successEl = document.getElementById('enquiry-success') as HTMLElement | null;
+  const errorEl = document.getElementById('enquiry-error') as HTMLElement | null;
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -857,7 +880,10 @@ const eventReview = {
     } catch {
       if (submitLabel) submitLabel.textContent = 'SEND ENQUIRY';
       if (submitBtn) submitBtn.disabled = false;
-      alert('Something went wrong. Please email us at thegrindfathercoffee@gmail.com');
+      if (errorEl) {
+        errorEl.textContent = 'Something went wrong. Please email us at thegrindfathercoffee@gmail.com';
+        errorEl.style.display = 'block';
+      }
     }
   });
 </script>

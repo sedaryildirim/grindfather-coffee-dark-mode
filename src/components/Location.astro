@@ -75,6 +75,7 @@
           Cardiff CF11 6AN<br />
           Opposite Principality Stadium
         </address>
+        <p class="location__area-hint">Outdoor market · City centre · opposite Principality Stadium</p>
         <a
           href="https://riversidemarket.org.uk"
           class="location__site-link"
@@ -153,6 +154,11 @@
   }
 
   getStatuses();
+
+  // Refresh when tab becomes visible again — prevents stale open/closed status
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') getStatuses();
+  });
 </script>
 
 <style>

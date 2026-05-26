@@ -97,6 +97,14 @@ summary:focus-visible {
   border-radius: 1px;
 }
 
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--brick);
+  outline-offset: 2px;
+  border-radius: 1px;
+}
+
 [data-bg="light"] a:focus-visible,
 [data-bg="light"] button:focus-visible {
   outline-color: var(--ink);
@@ -107,8 +115,8 @@ summary:focus-visible {
   opacity: 0;
   transform: translateY(2rem);
   transition:
-    opacity 700ms var(--ease-out-expo),
-    transform 700ms var(--ease-out-expo);
+    opacity 500ms var(--ease-out-expo),
+    transform 500ms var(--ease-out-expo);
 }
 
 [data-reveal][data-delay="1"] { transition-delay: 100ms; }
