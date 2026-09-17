@@ -33,6 +33,21 @@
             </p>
           </div>
 
+          <div class="about__split">
+            <div class="about__split-col">
+              <h3 class="about__split-heading">About Me</h3>
+              <p class="about__split-text">
+                [Placeholder] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — swap in Stefan's real story here: how he got started, his background, what drives him behind the machine every day.
+              </p>
+            </div>
+            <div class="about__split-col">
+              <h3 class="about__split-heading">About Our Coffee</h3>
+              <p class="about__split-text">
+                [Placeholder] Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat — swap in the sourcing and roasting story here: where the beans come from, how they're roasted, what makes the cup distinct.
+              </p>
+            </div>
+          </div>
+
           <dl class="about__facts">
             <div class="about__fact">
               <dt><span class="about__fact-num" aria-hidden="true">01</span>Quality First</dt>
@@ -133,6 +148,32 @@
     max-width: 52ch;
   }
 
+  .about__split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 2.5rem;
+    padding: 1.75rem 0;
+    border-top: 1px solid var(--ink-border, currentColor);
+    border-bottom: 1px solid var(--ink-border, currentColor);
+  }
+
+  .about__split-heading {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 0.625rem;
+  }
+
+  .about__split-text {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--ink-subtle);
+  }
+
   .about__facts {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -179,6 +220,11 @@
     }
 
     .about__content {
+      gap: 1.5rem;
+    }
+
+    .about__split {
+      grid-template-columns: 1fr;
       gap: 1.5rem;
     }
 
